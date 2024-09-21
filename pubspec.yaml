@@ -1,0 +1,34 @@
+name: passkeeper
+description: "PassKeeper is a secure, easy-to-use password manager app designed to store and manage your passwords efficiently. PassKeeper ensures your passwords are encrypted and safely stored, allowing you to manage credentials with ease."
+
+publish_to: 'none'
+
+version: 0.0.1+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  # assets:
+  #   - assets/images/a_dot_burr.jpeg
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #         weight: 700
