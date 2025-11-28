@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4fbc6959-5c47-4b78-a1e4-4ffe299182d7" alt="Logo" width="100" height="100">
+  <img src="https://github.com/user-attachments/assets/4f4f317d-4e79-45b1-aaa9-3b2e91a734c5" alt="Logo" width="100" height="100">
 </p>
+
 
 <h1 align="center">PassKeeper</h1>
 
