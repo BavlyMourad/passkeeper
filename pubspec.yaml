@@ -6,13 +6,15 @@ publish_to: 'none'
 version: 0.0.1+1
 
 environment:
-  sdk: ^3.5.4
+  sdk: ^3.11.1
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+
+  flutter_svg: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -25,12 +27,20 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/
 
   fonts:
     - family: Montserrat
       fonts:
-        - asset: assets/fonts/Montserrat-Light.ttf
-        - asset: assets/fonts/Montserrat-Regular.ttf
-        - asset: assets/fonts/Montserrat-Medium.ttf
-        - asset: assets/fonts/Montserrat-SemiBold.ttf
-        - asset: assets/fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-SemiBold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo/Cairo-Light.ttf
+        - asset: assets/fonts/Cairo/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo/Cairo-Medium.ttf
+        - asset: assets/fonts/Cairo/Cairo-SemiBold.ttf
+        - asset: assets/fonts/Cairo/Cairo-Bold.ttf
