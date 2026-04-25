@@ -9,6 +9,7 @@ class AppTheme {
     brightness: Brightness.light,
     colorScheme: _lightColorScheme,
     scaffoldBackgroundColor: AppColors.greyLightest,
+    appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
   );
 
   static ThemeData get dark => ThemeData(
@@ -16,81 +17,82 @@ class AppTheme {
     brightness: Brightness.dark,
     colorScheme: _darkColorScheme,
     scaffoldBackgroundColor: AppColors.black,
+    appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
   );
 
   static const _lightColorScheme = ColorScheme(
     brightness: Brightness.light,
     // Primary
     primary: AppColors.blueMedium,
-    onPrimary: AppColors.greyLightest,
-    primaryContainer: AppColors.blueMedium,
-    onPrimaryContainer: AppColors.greyLightest,
+    onPrimary: AppColors.greyLightest, // Text on button
+    primaryContainer: Colors.yellow,
+    onPrimaryContainer: Colors.yellow,
     // Secondary
-    secondary: AppColors.blueLight,
-    onSecondary: AppColors.greyLightest,
-    secondaryContainer: AppColors.greyLight,
-    onSecondaryContainer: AppColors.greyDark,
+    secondary: Colors.yellow,
+    onSecondary: AppColors.blueMedium, // Secondary icons
+    secondaryContainer: Colors.yellow,
+    onSecondaryContainer: Colors.yellow,
     // Tertiary
-    tertiary: AppColors.blueDark,
-    onTertiary: AppColors.white,
-    tertiaryContainer: AppColors.blueLight,
-    onTertiaryContainer: AppColors.blueDark,
+    tertiary: Colors.yellow,
+    onTertiary: Colors.yellow,
+    tertiaryContainer: Colors.yellow,
+    onTertiaryContainer: Colors.yellow,
     // Surface
-    surface: AppColors.greyLightest,
-    onSurface: AppColors.blueMedium,
-    surfaceContainerHighest: AppColors.greyLightest,
+    surface: Colors.yellow,
+    onSurface: AppColors.greyDark, // Text
+    surfaceContainerHighest: Colors.yellow,
     // Error
-    error: AppColors.redSoft,
-    onError: AppColors.greyLightest,
-    errorContainer: AppColors.redSoft,
-    onErrorContainer: AppColors.greyLightest,
+    error: Colors.yellow,
+    onError: Colors.yellow,
+    errorContainer: Colors.yellow,
+    onErrorContainer: Colors.yellow,
     // Outline
-    outline: AppColors.greyLight,
-    outlineVariant: AppColors.greyLightest,
+    outline: Colors.yellow,
+    outlineVariant: Colors.yellow,
     // Inverse
-    inverseSurface: AppColors.greyDark,
-    onInverseSurface: AppColors.greyLightest,
-    inversePrimary: AppColors.blueLight,
+    inverseSurface: Colors.yellow,
+    onInverseSurface: Colors.yellow,
+    inversePrimary: Colors.yellow,
     // Shadow / scrim
-    shadow: AppColors.black,
-    scrim: AppColors.black,
+    shadow: Colors.yellow,
+    scrim: Colors.yellow,
   );
 
   static const _darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
     // Primary
-    primary: AppColors.blueMedium,
-    onPrimary: AppColors.white,
-    primaryContainer: AppColors.blueLight,
-    onPrimaryContainer: AppColors.blueDark,
+    primary: AppColors.blueLight,
+    onPrimary: AppColors.greyLightest, // Text on button
+    primaryContainer: Colors.yellow,
+    onPrimaryContainer: Colors.yellow,
     // Secondary
-    secondary: AppColors.greyDark,
-    onSecondary: AppColors.white,
-    secondaryContainer: AppColors.greyLight,
-    onSecondaryContainer: AppColors.greyDark,
+    secondary: Colors.yellow,
+    onSecondary: AppColors.greyLight, // Secondary icons
+    secondaryContainer: Colors.yellow,
+    onSecondaryContainer: Colors.yellow,
     // Tertiary
-    tertiary: AppColors.blueDark,
-    onTertiary: AppColors.white,
-    tertiaryContainer: AppColors.blueLight,
-    onTertiaryContainer: AppColors.blueDark,
+    tertiary: Colors.yellow,
+    onTertiary: Colors.yellow,
+    tertiaryContainer: Colors.yellow,
+    onTertiaryContainer: Colors.yellow,
     // Surface
-    surface: AppColors.white,
-    onSurface: AppColors.greyDark,
-    surfaceContainerHighest: AppColors.greyLightest,
+    surface: Colors.yellow,
+    onSurface: AppColors.greyLightest, // Text
+    surfaceContainerHighest: Colors.yellow,
     // Error
-    error: AppColors.redSoft,
-    onError: AppColors.white,
-    errorContainer: AppColors.redSoft,
-    onErrorContainer: AppColors.white,
+    error: Colors.yellow,
+    onError: Colors.yellow,
+    errorContainer: Colors.yellow,
+    onErrorContainer: Colors.yellow,
     // Outline
-    outline: AppColors.greyLight,
-    outlineVariant: AppColors.greyLightest,
+    outline: Colors.yellow,
+    outlineVariant: Colors.yellow,
     // Inverse
-    inverseSurface: AppColors.greyDark,
-    onInverseSurface: AppColors.greyLightest,
-    inversePrimary: AppColors.blueLight,
+    inverseSurface: Colors.yellow,
+    onInverseSurface: Colors.yellow,
+    inversePrimary: Colors.yellow,
     // Shadow / scrim
-    shadow: AppColors.black,
-    scrim: AppColors.black,
+    shadow: Colors.yellow,
+    scrim: Colors.yellow,
   );
 }
