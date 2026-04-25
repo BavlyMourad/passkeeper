@@ -13,4 +13,17 @@ class AppColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
   static const Color redSoft = Color(0xFFFF6B6B);
+
+  static const List<Color> lightBackgroundGradientColors = [
+    Color(0xFFDBE5ED),
+    Color(0xFF6A87AF),
+  ];
+  static const List<Color> darkBackgroundGradientColors = [
+    Color(0xFF1B262E),
+    Color(0xFF172F4C),
+  ];
+
+  static const List<Color> lightButtonGradientColors = [blueMedium, blueDark];
+
+  static const List<Color> darkButtonGradientColors = [blueLight, blueMedium];
 }
