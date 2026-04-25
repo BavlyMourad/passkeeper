@@ -9,5 +9,20 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get test => 'تجربة';
+  String get welcomeTo => 'مرحبًا بك في';
+
+  @override
+  String get loginSubtitle =>
+      'حيث يتم حفظ جميع كلمات المرور الخاصة بك بأمان في مكان واحد';
+
+  @override
+  String get loginDescription =>
+      'نقوم بحفظ كلمات المرور الخاصة بك في مكان آمن وخاص لتتمكن من الوصول إليها بسهولة بنقرة واحدة من جميع أجهزتك';
+
+  @override
+  String get loginSetPinButtonLabel => 'تعيين رمز PIN';
+
+  @override
+  String get loginBiometricInfoText =>
+      'ستكون بياناتك قابلة للوصول باستخدام أي بصمة مسجلة على هذا الجهاز';
 }

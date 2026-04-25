@@ -98,11 +98,35 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
-  /// No description provided for @test.
+  /// No description provided for @welcomeTo.
   ///
   /// In en, this message translates to:
-  /// **'test'**
-  String get test;
+  /// **'Welcome to'**
+  String get welcomeTo;
+
+  /// No description provided for @loginSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where all of your passwords saved securely in one place'**
+  String get loginSubtitle;
+
+  /// No description provided for @loginDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'We keep your passwords in a secure private place to simply access them with one click from all your devices'**
+  String get loginDescription;
+
+  /// No description provided for @loginSetPinButtonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a PIN'**
+  String get loginSetPinButtonLabel;
+
+  /// No description provided for @loginBiometricInfoText.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data will be accessible with any biometric profile registered on this device'**
+  String get loginBiometricInfoText;
 }
 
 class _AppLocalizationsDelegate

@@ -9,5 +9,20 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get test => 'test';
+  String get welcomeTo => 'Welcome to';
+
+  @override
+  String get loginSubtitle =>
+      'Where all of your passwords saved securely in one place';
+
+  @override
+  String get loginDescription =>
+      'We keep your passwords in a secure private place to simply access them with one click from all your devices';
+
+  @override
+  String get loginSetPinButtonLabel => 'Set a PIN';
+
+  @override
+  String get loginBiometricInfoText =>
+      'Your data will be accessible with any biometric profile registered on this device';
 }
