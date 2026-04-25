@@ -17,6 +17,7 @@ class AppStyles {
       tabletBaseFontSize: 60.0,
     ),
     fontWeight: FontWeight.w600,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle headlineSemiBold(BuildContext context) => TextStyle(
@@ -27,6 +28,7 @@ class AppStyles {
       tabletBaseFontSize: 36.0,
     ),
     fontWeight: FontWeight.w600,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle titleLargeSemiBold(BuildContext context) => TextStyle(
@@ -37,6 +39,7 @@ class AppStyles {
       tabletBaseFontSize: 32.0,
     ),
     fontWeight: FontWeight.w600,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle titleLargeRegular(BuildContext context) => TextStyle(
@@ -47,6 +50,7 @@ class AppStyles {
       tabletBaseFontSize: 32.0,
     ),
     fontWeight: FontWeight.w400,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle titleMediumSemiBold(BuildContext context) => TextStyle(
@@ -57,6 +61,7 @@ class AppStyles {
       tabletBaseFontSize: 20.0,
     ),
     fontWeight: FontWeight.w600,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle titleMedium(BuildContext context) => TextStyle(
@@ -67,6 +72,7 @@ class AppStyles {
       tabletBaseFontSize: 20.0,
     ),
     fontWeight: FontWeight.w500,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle titleSmallSemiBold(BuildContext context) => TextStyle(
@@ -77,6 +83,7 @@ class AppStyles {
       tabletBaseFontSize: 16.0,
     ),
     fontWeight: FontWeight.w600,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle bodyRegular(BuildContext context) => TextStyle(
@@ -87,6 +94,7 @@ class AppStyles {
       tabletBaseFontSize: 20.0,
     ),
     fontWeight: FontWeight.w400,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle bodySmallMedium(BuildContext context) => TextStyle(
@@ -97,6 +105,7 @@ class AppStyles {
       tabletBaseFontSize: 14.0,
     ),
     fontWeight: FontWeight.w500,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle bodySmallSemiBold(BuildContext context) => TextStyle(
@@ -107,6 +116,7 @@ class AppStyles {
       tabletBaseFontSize: 14.0,
     ),
     fontWeight: FontWeight.w600,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle captionMedium(BuildContext context) => TextStyle(
@@ -117,6 +127,7 @@ class AppStyles {
       tabletBaseFontSize: 12.0,
     ),
     fontWeight: FontWeight.w500,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   static TextStyle captionRegular(BuildContext context) => TextStyle(
@@ -127,6 +138,7 @@ class AppStyles {
       tabletBaseFontSize: 12.0,
     ),
     fontWeight: FontWeight.w400,
+    color: Theme.of(context).colorScheme.onSurface,
   );
 
   // ─────── Responsive Logic ───────
