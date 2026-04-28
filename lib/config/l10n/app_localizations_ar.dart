@@ -25,4 +25,19 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get loginBiometricInfoText =>
       'ستكون بياناتك قابلة للوصول باستخدام أي بصمة مسجلة على هذا الجهاز';
+
+  @override
+  String get createPinTitle => 'كلمة المرور الوحيدة التي تحتاج إلى تذكرها';
+
+  @override
+  String get enterPinHint => 'أدخل رمز PIN مكون من 6 أرقام';
+
+  @override
+  String get confirmPinHint => 'تأكيد رمز PIN';
+
+  @override
+  String get enableBiometric => 'تفعيل تسجيل الدخول بالبصمة';
+
+  @override
+  String get confirmButton => 'تأكيد';
 }

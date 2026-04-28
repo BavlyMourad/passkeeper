@@ -127,6 +127,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your data will be accessible with any biometric profile registered on this device'**
   String get loginBiometricInfoText;
+
+  /// No description provided for @createPinTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The only password you need to remember'**
+  String get createPinTitle;
+
+  /// No description provided for @enterPinHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a 6-digit PIN'**
+  String get enterPinHint;
+
+  /// No description provided for @confirmPinHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm PIN'**
+  String get confirmPinHint;
+
+  /// No description provided for @enableBiometric.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable biometric login'**
+  String get enableBiometric;
+
+  /// No description provided for @confirmButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirmButton;
 }
 
 class _AppLocalizationsDelegate

@@ -25,4 +25,19 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get loginBiometricInfoText =>
       'Your data will be accessible with any biometric profile registered on this device';
+
+  @override
+  String get createPinTitle => 'The only password you need to remember';
+
+  @override
+  String get enterPinHint => 'Enter a 6-digit PIN';
+
+  @override
+  String get confirmPinHint => 'Confirm PIN';
+
+  @override
+  String get enableBiometric => 'Enable biometric login';
+
+  @override
+  String get confirmButton => 'Confirm';
 }
