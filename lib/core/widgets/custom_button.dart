@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:passkeeper/config/theme/app_colors.dart';
+import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
+import 'package:passkeeper/core/extensions/app_color_scheme.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
 
 class CustomButton extends StatelessWidget {
@@ -20,13 +21,11 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 48.0,
+      height: SizeConfig.buttonHeight(context.isMobile),
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: context.isDarkTheme
-                ? AppColors.darkButtonGradientColors
-                : AppColors.lightButtonGradientColors,
+            colors: Theme.of(context).colorScheme.buttonGradient,
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
           ),
@@ -59,9 +58,9 @@ class CustomButton extends StatelessWidget {
               ],
               Text(
                 title,
-                style: AppStyles.titleSmallSemiBold(
-                  context,
-                ).copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                style: AppStyles.titleSmallSemiBold(context).copyWith(
+                  color: Theme.of(context).colorScheme.buttonTextColor,
+                ),
               ),
             ],
           ),
