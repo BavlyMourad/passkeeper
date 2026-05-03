@@ -18,7 +18,7 @@ dependencies:
   # Internationalization and Localization
   intl: ^0.20.2
 
-  # Local Storage
+  # Simple key-value local Storage
   shared_preferences: ^2.5.5
 
   # State Management
@@ -28,6 +28,15 @@ dependencies:
   # UI
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.2.3
+  flutter_spinkit: ^5.2.2
+
+  # Navigation
+  go_router: ^17.2.0
+
+  # Security & Encryption
+  cryptography: ^2.9.0
+  flutter_secure_storage: ^10.0.0
+  local_auth: ^3.0.1
 
 dev_dependencies:
   flutter_test:
