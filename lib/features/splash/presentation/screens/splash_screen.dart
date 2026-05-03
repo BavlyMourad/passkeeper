@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
+import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 import 'package:passkeeper/core/widgets/welcome_header.dart';
@@ -27,6 +28,7 @@ class SplashScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const WelcomeHeader(),
+              SizedBox(height: SizeConfig.sectionSpacing(context.isMobile)),
               SpinKitThreeBounce(
                 color: Theme.of(context).colorScheme.primary,
                 size: 20.0,
