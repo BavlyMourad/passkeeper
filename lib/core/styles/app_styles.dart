@@ -4,13 +4,15 @@ import 'package:passkeeper/core/constants/size_config.dart';
 class AppStyles {
   AppStyles._();
 
-  // TODO: Switch font family based on locale
-  static const String fontFamily = 'Montserrat';
+  static String _fontFamily(BuildContext context) {
+    final locale = Localizations.localeOf(context);
+    return locale.languageCode == 'ar' ? 'Cairo' : 'Montserrat';
+  }
 
   // ─────── Text Styles ───────
 
   static TextStyle displaySemiBold(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 40.0,
@@ -21,7 +23,7 @@ class AppStyles {
   );
 
   static TextStyle headlineSemiBold(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 24.0,
@@ -32,7 +34,7 @@ class AppStyles {
   );
 
   static TextStyle titleLargeSemiBold(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 20.0,
@@ -43,7 +45,7 @@ class AppStyles {
   );
 
   static TextStyle titleLargeRegular(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 20.0,
@@ -54,7 +56,7 @@ class AppStyles {
   );
 
   static TextStyle titleMediumSemiBold(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 16.0,
@@ -65,7 +67,7 @@ class AppStyles {
   );
 
   static TextStyle titleMedium(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 16.0,
@@ -76,7 +78,7 @@ class AppStyles {
   );
 
   static TextStyle titleSmallSemiBold(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 14.0,
@@ -87,7 +89,7 @@ class AppStyles {
   );
 
   static TextStyle bodyRegular(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 14.0,
@@ -98,7 +100,7 @@ class AppStyles {
   );
 
   static TextStyle bodySmallMedium(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 12.0,
@@ -109,7 +111,7 @@ class AppStyles {
   );
 
   static TextStyle bodySmallSemiBold(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 12.0,
@@ -120,7 +122,7 @@ class AppStyles {
   );
 
   static TextStyle captionMedium(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 10.0,
@@ -131,7 +133,7 @@ class AppStyles {
   );
 
   static TextStyle captionRegular(BuildContext context) => TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
       context: context,
       mobileBaseFontSize: 10.0,
