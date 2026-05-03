@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:passkeeper/config/theme/app_colors.dart';
-import 'package:passkeeper/core/extensions/app_build_context.dart';
+import 'package:passkeeper/core/extensions/app_color_scheme.dart';
 
 class GradientBackground extends StatelessWidget {
   const GradientBackground({
@@ -19,9 +18,7 @@ class GradientBackground extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: context.isDarkTheme
-                ? AppColors.darkBackgroundGradientColors
-                : AppColors.lightBackgroundGradientColors,
+            colors: Theme.of(context).colorScheme.backgroundGradient,
             begin: begin,
             end: end,
           ),
