@@ -4,9 +4,6 @@ import 'package:passkeeper/config/theme/app_colors.dart';
 extension AppColorScheme on ColorScheme {
   bool get _isDarkTheme => brightness == Brightness.dark;
 
-  Color get textFieldBackground =>
-      _isDarkTheme ? AppColors.blueGreyDark : AppColors.greyLightest;
-
   Color get buttonTextColor => AppColors.greyLightest;
 
   Color get bottomSheetBackground =>
