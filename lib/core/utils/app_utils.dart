@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:passkeeper/core/extensions/app_color_scheme.dart';
+import 'package:passkeeper/core/styles/app_styles.dart';
 
 class AppUtils {
   AppUtils._();
+
+  static void showSnackBar({
+    required BuildContext context,
+    required String message,
+    Color? color,
+    int duration = 2,
+  }) {
+    final snackBar = SnackBar(
+      content: Text(
+        message,
+        textAlign: TextAlign.center,
+        style: AppStyles.bodyRegular(
+          context,
+        ).copyWith(color: Theme.of(context).colorScheme.onError),
+      ),
+      backgroundColor: color ?? Theme.of(context).colorScheme.error,
+      duration: Duration(seconds: duration),
+    );
+
+    ScaffoldMessenger.of(context)
+      ..clearSnackBars()
+      ..showSnackBar(snackBar);
+  }
 
   static void showBottomModalSheet({
     required BuildContext context,
