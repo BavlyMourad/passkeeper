@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:passkeeper/features/auth/screens/login_screen.dart';
+import 'package:passkeeper/features/auth/presentation/screens/login_screen.dart';
 import 'package:passkeeper/features/splash/presentation/screens/splash_screen.dart';
 
 class AppRoutes {

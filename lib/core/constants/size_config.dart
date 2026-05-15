@@ -8,35 +8,21 @@ class SizeConfig {
   static const double mobileScalePoint = 360.0;
   static const double tabletScalePoint = 744.0;
 
-  // ─────── Layout ───────
-  static const double _horizontalPaddingMobile = 24.0;
-  static const double _horizontalPaddingTablet = 60.0;
-
-  // 60% of screen width
-  static const double _tabletConstrainedWidthFactor = 0.6;
-
-  static const double _sectionSpacingMobile = 40.0;
-  static const double _sectionSpacingTablet = 60.0;
-
-  static const double _buttonHeightMobile = 44.0;
-  static const double _buttonHeightTablet = 48.0;
-
-  static const double _textFieldHeightMobile = 44.0;
-  static const double _textFieldHeightTablet = 48.0;
-
   // ─────── Helpers ───────
-  static double horizontalPadding(bool isMobile) =>
-      isMobile ? _horizontalPaddingMobile : _horizontalPaddingTablet;
 
+  /// Horizontal screen padding for content sections.
+  static double horizontalPadding(bool isMobile) => isMobile ? 24.0 : 60.0;
+
+  /// Maximum content width on tablet; full width on mobile.
   static double tabletConstrainedWidth(double screenWidth, bool isMobile) =>
-      isMobile ? double.infinity : screenWidth * _tabletConstrainedWidthFactor;
+      isMobile ? double.infinity : screenWidth * 0.6;
 
-  static double sectionSpacing(bool isMobile) =>
-      isMobile ? _sectionSpacingMobile : _sectionSpacingTablet;
+  /// Vertical spacing between major screen sections.
+  static double sectionSpacing(bool isMobile) => isMobile ? 40.0 : 60.0;
 
-  static double buttonHeight(bool isMobile) =>
-      isMobile ? _buttonHeightMobile : _buttonHeightTablet;
+  /// Standard height for buttons.
+  static double buttonHeight(bool isMobile) => isMobile ? 44.0 : 48.0;
 
-  static double textFieldHeight(bool isMobile) =>
-      isMobile ? _textFieldHeightMobile : _textFieldHeightTablet;
+  /// Standard height for text fields.
+  static double textFieldHeight(bool isMobile) => isMobile ? 44.0 : 48.0;
 }
