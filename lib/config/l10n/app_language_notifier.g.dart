@@ -42,7 +42,7 @@ final class AppLanguageNotifierProvider
 }
 
 String _$appLanguageNotifierHash() =>
-    r'7646c9e6264e2c5d09b5dda6917afafbc003c6bf';
+    r'7804daebf39c66c30a3135bd07769ea7beea17dc';
 
 abstract class _$AppLanguageNotifier extends $Notifier<AppLanguage> {
   AppLanguage build();

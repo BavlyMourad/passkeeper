@@ -9,5 +9,7 @@
   "enterPinHint": "Enter a 6-digit PIN",
   "confirmPinHint": "Confirm PIN",
   "enableBiometric": "Enable biometric login",
-  "confirmButton": "Confirm"
+  "confirmButton": "Confirm",
+  "biometricNotAvailable": "Biometric authentication is unavailable",
+  "login": "Login"
 }

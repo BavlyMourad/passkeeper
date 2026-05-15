@@ -40,4 +40,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmButton => 'Confirm';
+
+  @override
+  String get biometricNotAvailable => 'Biometric authentication is unavailable';
+
+  @override
+  String get login => 'Login';
 }

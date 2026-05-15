@@ -40,4 +40,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get confirmButton => 'تأكيد';
+
+  @override
+  String get biometricNotAvailable => 'التحقق بالبصمة غير متاح';
+
+  @override
+  String get login => 'تسجيل الدخول';
 }

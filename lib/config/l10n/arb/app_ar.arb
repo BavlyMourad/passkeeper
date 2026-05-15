@@ -9,5 +9,7 @@
   "enterPinHint": "أدخل رمز PIN مكون من 6 أرقام",
   "confirmPinHint": "تأكيد رمز PIN",
   "enableBiometric": "تفعيل تسجيل الدخول بالبصمة",
-  "confirmButton": "تأكيد"
+  "confirmButton": "تأكيد",
+  "biometricNotAvailable": "التحقق بالبصمة غير متاح",
+  "login": "تسجيل الدخول"
 }
