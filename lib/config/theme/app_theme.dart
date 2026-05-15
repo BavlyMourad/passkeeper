@@ -18,6 +18,22 @@ class AppTheme {
         borderSide: BorderSide.none,
       ),
     ),
+    switchTheme: SwitchThemeData(
+      // Returns the same value no matter what state the widget is in.
+      thumbColor: WidgetStateProperty.all(AppColors.greyLightest),
+      trackColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return AppColors.blueMedium;
+        }
+        return AppColors.greyLight;
+      }),
+      trackOutlineColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return Colors.transparent;
+        }
+        return AppColors.greyLightest;
+      }),
+    ),
   );
 
   static ThemeData get dark => ThemeData(
@@ -34,13 +50,28 @@ class AppTheme {
         borderSide: BorderSide.none,
       ),
     ),
+    switchTheme: SwitchThemeData(
+      thumbColor: WidgetStateProperty.all(AppColors.greyLightest),
+      trackColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return AppColors.blueLight;
+        }
+        return AppColors.greyLight;
+      }),
+      trackOutlineColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return Colors.transparent;
+        }
+        return AppColors.greyLightest;
+      }),
+    ),
   );
 
   static const _lightColorScheme = ColorScheme(
     brightness: Brightness.light,
     // Primary
-    primary: AppColors.blueMedium,
-    onPrimary: AppColors.greyDark, // Text on button
+    primary: AppColors.blueMedium, // Switch (on)
+    onPrimary: AppColors.greyDark, // Text on button / Switch (on)
     primaryContainer: Colors.yellow,
     onPrimaryContainer: Colors.yellow,
     // Secondary
@@ -56,14 +87,14 @@ class AppTheme {
     // Surface
     surface: Colors.yellow,
     onSurface: AppColors.greyDark, // Text
-    surfaceContainerHighest: AppColors.greyLight, // Switch
+    surfaceContainerHighest: Colors.yellow, // Switch (off)
     // Error
-    error: Colors.yellow,
-    onError: Colors.yellow,
+    error: AppColors.redSoft,
+    onError: AppColors.white,
     errorContainer: Colors.yellow,
     onErrorContainer: Colors.yellow,
     // Outline
-    outline: AppColors.greyLightest, // Switch
+    outline: Colors.yellow, // Switch (off)
     outlineVariant: Colors.yellow,
     // Inverse
     inverseSurface: Colors.yellow,
@@ -77,8 +108,8 @@ class AppTheme {
   static const _darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
     // Primary
-    primary: AppColors.blueLight,
-    onPrimary: AppColors.greyLightest, // Text on button
+    primary: AppColors.blueLight, // Switch (on)
+    onPrimary: AppColors.greyLightest, // Text on button / Switch (on)
     primaryContainer: Colors.yellow,
     onPrimaryContainer: Colors.yellow,
     // Secondary
@@ -94,14 +125,14 @@ class AppTheme {
     // Surface
     surface: Colors.yellow,
     onSurface: AppColors.greyLightest, // Text
-    surfaceContainerHighest: AppColors.greyLight, // Switch
+    surfaceContainerHighest: Colors.yellow, // Switch (off)
     // Error
-    error: Colors.yellow,
-    onError: Colors.yellow,
+    error: AppColors.redSoft,
+    onError: AppColors.white,
     errorContainer: Colors.yellow,
     onErrorContainer: Colors.yellow,
     // Outline
-    outline: AppColors.greyLightest, // Switch
+    outline: Colors.yellow, // Switch (off)
     outlineVariant: Colors.yellow,
     // Inverse
     inverseSurface: Colors.yellow,
