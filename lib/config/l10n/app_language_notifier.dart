@@ -1,4 +1,4 @@
-import 'package:passkeeper/core/providers/shared_prefs_provider.dart';
+import 'package:passkeeper/core/providers/shared_prefs.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/shared_prefs_keys.dart';

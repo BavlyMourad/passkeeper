@@ -11,5 +11,8 @@
   "enableBiometric": "Enable biometric login",
   "confirmButton": "Confirm",
   "biometricNotAvailable": "Biometric authentication is unavailable",
-  "login": "Login"
+  "login": "Login",
+  "pinMismatch": "PINs do not match. Please try again.",
+  "pinTooShort": "PIN must be at least 6 digits.",
+  "genericError": "Something went wrong. Please try again."
 }

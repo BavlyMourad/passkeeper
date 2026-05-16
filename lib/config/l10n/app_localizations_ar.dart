@@ -46,4 +46,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get login => 'تسجيل الدخول';
+
+  @override
+  String get pinMismatch =>
+      'الأرقام السرية غير متطابقة. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get pinTooShort => 'يجب أن يتكون الرقم السري من 6 أرقام على الأقل.';
+
+  @override
+  String get genericError => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.';
 }
