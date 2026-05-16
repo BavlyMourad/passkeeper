@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
        );
 
   final String? title;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String? prefixIconPath;
   final String? iconButtonPath;
 

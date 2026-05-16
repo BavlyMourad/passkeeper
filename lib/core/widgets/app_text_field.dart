@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
@@ -17,6 +18,8 @@ class AppTextField extends StatelessWidget {
     this.secondarySuffixIconPath,
     this.onSuffixIconPressed,
     this.onSecondarySuffixIconPressed,
+    this.maxLength,
+    this.inputFormatters,
   });
 
   final TextEditingController controller;
@@ -28,6 +31,8 @@ class AppTextField extends StatelessWidget {
   final VoidCallback? onSuffixIconPressed;
   final VoidCallback? onSecondarySuffixIconPressed;
   final String hintText;
+  final int? maxLength;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,10 @@ class AppTextField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
+      maxLength: maxLength,
+      inputFormatters: inputFormatters,
       decoration: InputDecoration(
+        counterText: '', // Hides the default "0/6" counter shown by maxLength
         constraints: BoxConstraints(
           maxHeight: SizeConfig.textFieldHeight(context.isMobile),
         ),
