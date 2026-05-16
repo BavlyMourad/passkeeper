@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'obscure_text_provider.g.dart';
+part 'obscure_text.g.dart';
 
 @riverpod
 class ObscureText extends _$ObscureText {

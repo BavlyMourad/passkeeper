@@ -1,9 +1,9 @@
 import 'package:passkeeper/core/constants/shared_prefs_keys.dart';
-import 'package:passkeeper/core/providers/shared_prefs_provider.dart';
+import 'package:passkeeper/core/providers/shared_prefs.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:local_auth/local_auth.dart';
 
-part 'biometric_auth_provider.g.dart';
+part 'biometric_auth.g.dart';
 
 @riverpod
 class BiometricAuth extends _$BiometricAuth {

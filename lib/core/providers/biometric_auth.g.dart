@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'biometric_auth_provider.dart';
+part of 'biometric_auth.dart';
 
 // **************************************************************************
 // RiverpodGenerator
