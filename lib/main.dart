@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passkeeper/app.dart';
-import 'package:passkeeper/core/providers/shared_prefs_provider.dart';
+import 'package:passkeeper/core/providers/shared_prefs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
