@@ -22,7 +22,4 @@ class SizeConfig {
 
   /// Standard height for buttons.
   static double buttonHeight(bool isMobile) => isMobile ? 44.0 : 48.0;
-
-  /// Standard height for text fields.
-  static double textFieldHeight(bool isMobile) => isMobile ? 44.0 : 48.0;
 }
