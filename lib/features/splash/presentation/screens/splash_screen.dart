@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
+import 'package:passkeeper/config/routes/app_routes.dart';
 import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
@@ -15,7 +16,7 @@ class SplashScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(splashControllerProvider, (_, state) {
       if (state is AsyncData) {
-        context.go('/login');
+        context.go(AppRoutes.login);
       }
     });
 
