@@ -1,5 +1,7 @@
 sealed class AppException implements Exception {}
 
-class PinMismatchException extends AppException {}
+class WrongPinException extends AppException {}
 
-class PinTooShortException extends AppException {}
+class BiometricAuthException extends AppException {}
+
+class BiometricNotEnrolledException extends AppException {}
