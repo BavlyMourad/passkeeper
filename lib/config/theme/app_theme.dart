@@ -17,6 +17,22 @@ class AppTheme {
         borderRadius: BorderRadius.circular(8.0),
         borderSide: BorderSide.none,
       ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide.none,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide.none,
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: const BorderSide(color: AppColors.redSoft, width: 1.5),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: const BorderSide(color: AppColors.redSoft, width: 1.5),
+      ),
     ),
     switchTheme: SwitchThemeData(
       // Returns the same value no matter what state the widget is in.
@@ -49,8 +65,25 @@ class AppTheme {
         borderRadius: BorderRadius.circular(8.0),
         borderSide: BorderSide.none,
       ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide.none,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide.none,
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: const BorderSide(color: AppColors.redSoft, width: 1.5),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: const BorderSide(color: AppColors.redSoft, width: 1.5),
+      ),
     ),
     switchTheme: SwitchThemeData(
+      // Returns the same value no matter what state the widget is in.
       thumbColor: WidgetStateProperty.all(AppColors.greyLightest),
       trackColor: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.selected)) {
@@ -70,76 +103,76 @@ class AppTheme {
   static const _lightColorScheme = ColorScheme(
     brightness: Brightness.light,
     // Primary
-    primary: AppColors.blueMedium, // Switch (on)
-    onPrimary: AppColors.greyDark, // Text on button / Switch (on)
-    primaryContainer: Colors.yellow,
-    onPrimaryContainer: Colors.yellow,
+    primary: AppColors.blueMedium, // Switch track (on)
+    onPrimary: AppColors.greyDark, // Text on button / Switch thumb (on)
+    primaryContainer: AppColors.blueDark, //? Button gradient end
+    onPrimaryContainer: AppColors.white, //? Text on primary container
     // Secondary
-    secondary: Colors.yellow,
+    secondary: AppColors.blueLight, //? Chip color
     onSecondary: AppColors.blueMedium, // Secondary icons
-    secondaryContainer: Colors.yellow,
-    onSecondaryContainer: Colors.yellow,
+    secondaryContainer: AppColors.white, //? Chip text color
+    onSecondaryContainer: AppColors.greyDark, //? Text on secondary container
     // Tertiary
-    tertiary: Colors.yellow,
-    onTertiary: Colors.yellow,
-    tertiaryContainer: Colors.yellow,
-    onTertiaryContainer: Colors.yellow,
+    tertiary: AppColors.blueGreyMedium, //? Overlay background
+    onTertiary: AppColors.white, //? Text on overlay
+    tertiaryContainer: AppColors.blueLightest, //? Light overlay variant
+    onTertiaryContainer: AppColors.greyDark, //? Text on light overlay
     // Surface
-    surface: Colors.yellow,
+    surface: AppColors.white, //? Card background
     onSurface: AppColors.greyDark, // Text
-    surfaceContainerHighest: Colors.yellow, // Switch (off)
+    surfaceContainerHighest: AppColors.greyLight, // Switch track (off)
     // Error
-    error: AppColors.redSoft,
-    onError: AppColors.white,
-    errorContainer: Colors.yellow,
-    onErrorContainer: Colors.yellow,
+    error: AppColors.redSoft, //? Error state
+    onError: AppColors.white, //? Text on error
+    errorContainer: AppColors.redSoft, //? Error container
+    onErrorContainer: AppColors.white, //? Text on error container
     // Outline
-    outline: Colors.yellow, // Switch (off)
-    outlineVariant: Colors.yellow,
+    outline: AppColors.greyLight, // Switch border (off)
+    outlineVariant: AppColors.blueLightest, //? Subtle borders
     // Inverse
-    inverseSurface: Colors.yellow,
-    onInverseSurface: Colors.yellow,
-    inversePrimary: Colors.yellow,
+    inverseSurface: AppColors.greyDark, //? Snackbar background
+    onInverseSurface: AppColors.white, //? Snackbar text
+    inversePrimary: AppColors.blueLight, //? Inverse primary action
     // Shadow / scrim
-    shadow: Colors.yellow,
-    scrim: Colors.yellow,
+    shadow: AppColors.black, //? Shadows
+    scrim: AppColors.black, //? Modal scrim
   );
 
   static const _darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
     // Primary
-    primary: AppColors.blueLight, // Switch (on)
-    onPrimary: AppColors.greyLightest, // Text on button / Switch (on)
-    primaryContainer: Colors.yellow,
-    onPrimaryContainer: Colors.yellow,
+    primary: AppColors.blueLight, // Switch track (on)
+    onPrimary: AppColors.greyLightest, // Text on button / Switch thumb (on)
+    primaryContainer: AppColors.blueMedium, //? Button gradient end
+    onPrimaryContainer: AppColors.white, //? Text on primary container
     // Secondary
-    secondary: Colors.yellow,
+    secondary: AppColors.blueLight, //? Chip color
     onSecondary: AppColors.greyLight, // Secondary icons
-    secondaryContainer: Colors.yellow,
-    onSecondaryContainer: Colors.yellow,
+    secondaryContainer: AppColors.blueMedium, //? Chip text color
+    onSecondaryContainer: AppColors.white, //? Text on secondary container
     // Tertiary
-    tertiary: Colors.yellow,
-    onTertiary: Colors.yellow,
-    tertiaryContainer: Colors.yellow,
-    onTertiaryContainer: Colors.yellow,
+    tertiary: AppColors.blueGreyMedium, //? Overlay background
+    onTertiary: AppColors.greyLightest, //? Text on overlay
+    tertiaryContainer: AppColors.blueGreyDark, //? Dark overlay variant
+    onTertiaryContainer: AppColors.greyLight, //? Text on dark overlay
     // Surface
-    surface: Colors.yellow,
+    surface: AppColors.blueGreyDark, //? Card background
     onSurface: AppColors.greyLightest, // Text
-    surfaceContainerHighest: Colors.yellow, // Switch (off)
+    surfaceContainerHighest: AppColors.blueGreyMedium, // Switch track (off)
     // Error
-    error: AppColors.redSoft,
-    onError: AppColors.white,
-    errorContainer: Colors.yellow,
-    onErrorContainer: Colors.yellow,
+    error: AppColors.redSoft, //? Error state
+    onError: AppColors.white, //? Text on error
+    errorContainer: AppColors.redSoft, //? Error container
+    onErrorContainer: AppColors.white, //? Text on error container
     // Outline
-    outline: Colors.yellow, // Switch (off)
-    outlineVariant: Colors.yellow,
+    outline: AppColors.blueGreyMedium, // Switch border (off)
+    outlineVariant: AppColors.blueGreyDark, //? Subtle borders
     // Inverse
-    inverseSurface: Colors.yellow,
-    onInverseSurface: Colors.yellow,
-    inversePrimary: Colors.yellow,
+    inverseSurface: AppColors.greyLightest, //? Snackbar background
+    onInverseSurface: AppColors.greyDark, //? Snackbar text
+    inversePrimary: AppColors.blueMedium, //? Inverse primary action
     // Shadow / scrim
-    shadow: Colors.yellow,
-    scrim: Colors.yellow,
+    shadow: AppColors.black, //? Shadows
+    scrim: AppColors.black, //? Modal scrim
   );
 }

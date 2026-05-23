@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:passkeeper/core/constants/shared_prefs_keys.dart';
-import 'package:passkeeper/core/providers/shared_prefs_provider.dart';
+import 'package:passkeeper/core/providers/shared_prefs.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'app_theme_notifier.g.dart';
