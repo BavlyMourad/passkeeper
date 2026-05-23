@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
-import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/widgets/app_icon.dart';
@@ -20,6 +19,7 @@ class AppTextField extends StatelessWidget {
     this.onSecondarySuffixIconPressed,
     this.maxLength,
     this.inputFormatters,
+    this.validator,
   });
 
   final TextEditingController controller;
@@ -33,20 +33,21 @@ class AppTextField extends StatelessWidget {
   final String hintText;
   final int? maxLength;
   final List<TextInputFormatter>? inputFormatters;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
       maxLength: maxLength,
       inputFormatters: inputFormatters,
+      validator: validator,
       decoration: InputDecoration(
+        hintText: hintText,
         counterText: '', // Hides the default "0/6" counter shown by maxLength
-        constraints: BoxConstraints(
-          maxHeight: SizeConfig.textFieldHeight(context.isMobile),
-        ),
+        isDense: context.isMobile, // More compact on mobile
         prefixIcon: Center(
           widthFactor: 1.0,
           child: AppIcon(
@@ -88,10 +89,12 @@ class AppTextField extends StatelessWidget {
                 ),
               )
             : null,
-        hintText: hintText,
         hintStyle: AppStyles.bodySmallMedium(
           context,
         ).copyWith(color: Theme.of(context).colorScheme.onSecondary),
+        errorStyle: AppStyles.bodySmallMedium(
+          context,
+        ).copyWith(color: Theme.of(context).colorScheme.error),
       ),
     );
   }

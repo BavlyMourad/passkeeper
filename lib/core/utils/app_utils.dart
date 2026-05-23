@@ -15,7 +15,7 @@ class AppUtils {
       content: Text(
         message,
         textAlign: TextAlign.center,
-        style: AppStyles.bodyRegular(
+        style: AppStyles.bodySmallMedium(
           context,
         ).copyWith(color: Theme.of(context).colorScheme.onError),
       ),
