@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:passkeeper/features/auth/presentation/screens/login_screen.dart';
+import 'package:passkeeper/features/passwords/presentation/screens/passwords_screen.dart';
 import 'package:passkeeper/features/splash/presentation/screens/splash_screen.dart';
 
 class AppRoutes {
@@ -7,12 +8,17 @@ class AppRoutes {
 
   static const splash = '/';
   static const login = '/login';
+  static const passwords = '/passwords';
 
   // GoRouter configuration
   static final router = GoRouter(
     routes: [
       GoRoute(path: splash, builder: (context, state) => const SplashScreen()),
       GoRoute(path: login, builder: (context, state) => const LoginScreen()),
+      GoRoute(
+        path: passwords,
+        builder: (context, state) => const PasswordsScreen(),
+      ),
     ],
   );
 }
