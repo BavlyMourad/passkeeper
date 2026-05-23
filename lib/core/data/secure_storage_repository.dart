@@ -16,6 +16,13 @@ class SecureStorageRepository {
     ),
   );
 
+  final _biometricStorage = const FlutterSecureStorage(
+    aOptions: AndroidOptions.biometric(enforceBiometrics: true),
+    iOptions: IOSOptions(
+      accessibility: KeychainAccessibility.first_unlock_this_device,
+    ),
+  );
+
   Future<void> write(String key, String value) async {
     await _storage.write(key: key, value: value);
   }
@@ -28,7 +35,20 @@ class SecureStorageRepository {
     await _storage.delete(key: key);
   }
 
+  Future<void> writeBiometric(String key, String value) async {
+    await _biometricStorage.write(key: key, value: value);
+  }
+
+  Future<String?> readBiometric(String key) async {
+    return _biometricStorage.read(key: key);
+  }
+
+  Future<void> deleteBiometric(String key) async {
+    await _biometricStorage.delete(key: key);
+  }
+
   Future<void> deleteAll() async {
     await _storage.deleteAll();
+    await _biometricStorage.deleteAll();
   }
 }
