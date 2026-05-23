@@ -12,7 +12,11 @@
   "confirmButton": "Confirm",
   "biometricNotAvailable": "Biometric authentication is unavailable",
   "login": "Login",
+  "genericError": "Something went wrong. Please try again.",
   "pinMismatch": "PINs do not match. Please try again.",
   "pinTooShort": "PIN must be at least 6 digits.",
-  "genericError": "Something went wrong. Please try again."
+  "wrongPin": "Wrong PIN. Please try again.",
+  "biometricFailed": "Biometric authentication failed.",
+  "biometricNotEnrolled": "Biometric not set up. Please login with PIN.",
+  "biometricReason": "Authenticate to access PassKeeper"
 }

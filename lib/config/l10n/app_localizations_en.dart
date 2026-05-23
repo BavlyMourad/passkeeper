@@ -48,11 +48,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
+  String get genericError => 'Something went wrong. Please try again.';
+
+  @override
   String get pinMismatch => 'PINs do not match. Please try again.';
 
   @override
   String get pinTooShort => 'PIN must be at least 6 digits.';
 
   @override
-  String get genericError => 'Something went wrong. Please try again.';
+  String get wrongPin => 'Wrong PIN. Please try again.';
+
+  @override
+  String get biometricFailed => 'Biometric authentication failed.';
+
+  @override
+  String get biometricNotEnrolled =>
+      'Biometric not set up. Please login with PIN.';
+
+  @override
+  String get biometricReason => 'Authenticate to access PassKeeper';
 }

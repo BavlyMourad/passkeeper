@@ -48,6 +48,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get login => 'تسجيل الدخول';
 
   @override
+  String get genericError => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.';
+
+  @override
   String get pinMismatch =>
       'الأرقام السرية غير متطابقة. يرجى المحاولة مرة أخرى.';
 
@@ -55,5 +58,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pinTooShort => 'يجب أن يتكون الرقم السري من 6 أرقام على الأقل.';
 
   @override
-  String get genericError => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.';
+  String get wrongPin => 'رمز PIN غير صحيح. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get biometricFailed => 'فشل التحقق بالبصمة.';
+
+  @override
+  String get biometricNotEnrolled =>
+      'لم يتم إعداد البصمة. يرجى تسجيل الدخول باستخدام رمز PIN.';
+
+  @override
+  String get biometricReason => 'قم بالمصادقة للوصول إلى PassKeeper';
 }

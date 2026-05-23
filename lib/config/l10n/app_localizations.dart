@@ -170,6 +170,12 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
+  /// No description provided for @genericError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get genericError;
+
   /// No description provided for @pinMismatch.
   ///
   /// In en, this message translates to:
@@ -182,11 +188,29 @@ abstract class AppLocalizations {
   /// **'PIN must be at least 6 digits.'**
   String get pinTooShort;
 
-  /// No description provided for @genericError.
+  /// No description provided for @wrongPin.
   ///
   /// In en, this message translates to:
-  /// **'Something went wrong. Please try again.'**
-  String get genericError;
+  /// **'Wrong PIN. Please try again.'**
+  String get wrongPin;
+
+  /// No description provided for @biometricFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric authentication failed.'**
+  String get biometricFailed;
+
+  /// No description provided for @biometricNotEnrolled.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric not set up. Please login with PIN.'**
+  String get biometricNotEnrolled;
+
+  /// No description provided for @biometricReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Authenticate to access PassKeeper'**
+  String get biometricReason;
 }
 
 class _AppLocalizationsDelegate
