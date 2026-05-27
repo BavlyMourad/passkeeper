@@ -88,21 +88,28 @@ class _LoginFormState extends ConsumerState<LoginForm> {
     return Column(
       children: [
         // Pin field
-        Form(
-          key: _formKey,
-          child: AppTextField(
-            controller: _pinController,
-            obscureText: isPinObscured,
-            keyboardType: TextInputType.number,
-            maxLength: 6,
-            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-            validator: (value) => AppFormValidators.pin(context, value),
-            prefixIconPath: IconPaths.password,
-            suffixIconPath: isPinObscured
-                ? IconPaths.invisible
-                : IconPaths.visible,
-            onSuffixIconPressed: () => _toggleObscureText(ObscureTextKeys.pin),
-            hintText: AppLocalizations.of(context)!.enterPinHint,
+        SizedBox(
+          width: SizeConfig.tabletConstrainedWidth(
+            context.screenWidth,
+            context.isMobile,
+          ),
+          child: Form(
+            key: _formKey,
+            child: AppTextField(
+              controller: _pinController,
+              obscureText: isPinObscured,
+              keyboardType: TextInputType.number,
+              maxLength: 6,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              validator: (value) => AppFormValidators.pin(context, value),
+              prefixIconPath: IconPaths.password,
+              suffixIconPath: isPinObscured
+                  ? IconPaths.invisible
+                  : IconPaths.visible,
+              onSuffixIconPressed: () =>
+                  _toggleObscureText(ObscureTextKeys.pin),
+              hintText: AppLocalizations.of(context)!.enterPinHint,
+            ),
           ),
         ),
 
