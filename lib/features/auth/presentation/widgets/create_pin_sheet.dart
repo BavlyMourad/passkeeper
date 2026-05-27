@@ -10,7 +10,6 @@ import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/providers/biometric_auth.dart';
 import 'package:passkeeper/core/providers/obscure_text.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
-import 'package:passkeeper/core/utils/app_utils.dart';
 import 'package:passkeeper/core/validators/app_form_validators.dart';
 import 'package:passkeeper/core/widgets/app_text_field.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
@@ -30,6 +29,8 @@ class _CreatePinSheetState extends ConsumerState<CreatePinSheet> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  String _biometricError = '';
+
   @override
   void dispose() {
     _pinController.dispose();
@@ -43,15 +44,14 @@ class _CreatePinSheetState extends ConsumerState<CreatePinSheet> {
   }
 
   Future<void> _toggleBiometric(BuildContext context) async {
+    setState(() => _biometricError = ''); // clear on every toggle attempt
+
     final success = await ref.read(biometricAuthProvider.notifier).toggle();
 
-    if (!success && context.mounted) {
-      context.pop();
-
-      AppUtils.showSnackBar(
-        context: context,
-        message: AppLocalizations.of(context)!.biometricNotAvailable,
-      );
+    if (!success) {
+      setState(() {
+        _biometricError = AppLocalizations.of(context)!.biometricNotAvailable;
+      });
     }
   }
 
@@ -159,6 +159,14 @@ class _CreatePinSheetState extends ConsumerState<CreatePinSheet> {
                   ),
                 ],
               ),
+
+              if (_biometricError.isNotEmpty)
+                Text(
+                  _biometricError,
+                  style: AppStyles.bodySmallMedium(
+                    context,
+                  ).copyWith(color: Theme.of(context).colorScheme.error),
+                ),
 
               const SizedBox(height: 16.0),
 
