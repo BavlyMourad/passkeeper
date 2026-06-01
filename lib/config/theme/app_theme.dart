@@ -58,6 +58,7 @@ class AppTheme {
     colorScheme: _darkColorScheme,
     scaffoldBackgroundColor: AppColors.black,
     appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
+
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.blueGreyDark,
@@ -82,6 +83,7 @@ class AppTheme {
         borderSide: const BorderSide(color: AppColors.redSoft, width: 1.5),
       ),
     ),
+
     switchTheme: SwitchThemeData(
       // Returns the same value no matter what state the widget is in.
       thumbColor: WidgetStateProperty.all(AppColors.greyLightest),
@@ -108,9 +110,9 @@ class AppTheme {
     primaryContainer: AppColors.blueDark, //? Button gradient end
     onPrimaryContainer: AppColors.white, //? Text on primary container
     // Secondary
-    secondary: AppColors.blueLight, //? Chip color
+    secondary: AppColors.blueLight,
     onSecondary: AppColors.blueMedium, // Secondary icons
-    secondaryContainer: AppColors.white, //? Chip text color
+    secondaryContainer: AppColors.white,
     onSecondaryContainer: AppColors.greyDark, //? Text on secondary container
     // Tertiary
     tertiary: AppColors.blueGreyMedium, //? Overlay background
@@ -118,7 +120,7 @@ class AppTheme {
     tertiaryContainer: AppColors.blueLightest, //? Light overlay variant
     onTertiaryContainer: AppColors.greyDark, //? Text on light overlay
     // Surface
-    surface: AppColors.white, //? Card background
+    surface: AppColors.greyLightest, // Card background / Navbar / Chip
     onSurface: AppColors.greyDark, // Text
     surfaceContainerHighest: AppColors.greyLight, // Switch track (off)
     // Error
@@ -128,7 +130,7 @@ class AppTheme {
     onErrorContainer: AppColors.white, //? Text on error container
     // Outline
     outline: AppColors.greyLight, // Switch border (off)
-    outlineVariant: AppColors.blueLightest, //? Subtle borders
+    outlineVariant: Colors.transparent, // Chip border
     // Inverse
     inverseSurface: AppColors.greyDark, //? Snackbar background
     onInverseSurface: AppColors.white, //? Snackbar text
@@ -146,9 +148,9 @@ class AppTheme {
     primaryContainer: AppColors.blueMedium, //? Button gradient end
     onPrimaryContainer: AppColors.white, //? Text on primary container
     // Secondary
-    secondary: AppColors.blueLight, //? Chip color
-    onSecondary: AppColors.greyLight, // Secondary icons
-    secondaryContainer: AppColors.blueMedium, //? Chip text color
+    secondary: AppColors.blueLight,
+    onSecondary: AppColors.greyLightest, // Secondary icons
+    secondaryContainer: AppColors.blueMedium,
     onSecondaryContainer: AppColors.white, //? Text on secondary container
     // Tertiary
     tertiary: AppColors.blueGreyMedium, //? Overlay background
@@ -156,7 +158,7 @@ class AppTheme {
     tertiaryContainer: AppColors.blueGreyDark, //? Dark overlay variant
     onTertiaryContainer: AppColors.greyLight, //? Text on dark overlay
     // Surface
-    surface: AppColors.blueGreyDark, //? Card background
+    surface: AppColors.blueGreyDark, // Card background / Navbar / Chip
     onSurface: AppColors.greyLightest, // Text
     surfaceContainerHighest: AppColors.blueGreyMedium, // Switch track (off)
     // Error
@@ -166,7 +168,7 @@ class AppTheme {
     onErrorContainer: AppColors.white, //? Text on error container
     // Outline
     outline: AppColors.blueGreyMedium, // Switch border (off)
-    outlineVariant: AppColors.blueGreyDark, //? Subtle borders
+    outlineVariant: Colors.transparent, // Chip border
     // Inverse
     inverseSurface: AppColors.greyLightest, //? Snackbar background
     onInverseSurface: AppColors.greyDark, //? Snackbar text
