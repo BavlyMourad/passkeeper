@@ -18,5 +18,8 @@
   "wrongPin": "رمز PIN غير صحيح. يرجى المحاولة مرة أخرى.",
   "biometricFailed": "فشل التحقق بالبصمة.",
   "biometricNotEnrolled": "لم يتم إعداد البصمة. يرجى تسجيل الدخول باستخدام رمز PIN.",
-  "biometricReason": "قم بالمصادقة للوصول إلى PassKeeper"
+  "biometricReason": "قم بالمصادقة للوصول إلى PassKeeper",
+  "noPasswordsYet": "لا توجد أي كلمات مرور هنا... حتى الآن!\nاضغط على الزر أدناه لإضافة أول كلمة مرور لك.",
+  "search": "بحث",
+  "all": "الكل"
 }

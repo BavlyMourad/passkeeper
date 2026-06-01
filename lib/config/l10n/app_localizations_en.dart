@@ -68,4 +68,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get biometricReason => 'Authenticate to access PassKeeper';
+
+  @override
+  String get noPasswordsYet =>
+      'No secrets here...yet!\nTap the button below to add your first password';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get all => 'All';
 }

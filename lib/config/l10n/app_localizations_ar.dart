@@ -69,4 +69,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get biometricReason => 'قم بالمصادقة للوصول إلى PassKeeper';
+
+  @override
+  String get noPasswordsYet =>
+      'لا توجد أي كلمات مرور هنا... حتى الآن!\nاضغط على الزر أدناه لإضافة أول كلمة مرور لك.';
+
+  @override
+  String get search => 'بحث';
+
+  @override
+  String get all => 'الكل';
 }

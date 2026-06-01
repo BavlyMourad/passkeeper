@@ -18,5 +18,8 @@
   "wrongPin": "Wrong PIN. Please try again.",
   "biometricFailed": "Biometric authentication failed.",
   "biometricNotEnrolled": "Biometric not set up. Please login with PIN.",
-  "biometricReason": "Authenticate to access PassKeeper"
+  "biometricReason": "Authenticate to access PassKeeper",
+  "noPasswordsYet": "No secrets here...yet!\nTap the button below to add your first password",
+  "search": "Search",
+  "all": "All"
 }

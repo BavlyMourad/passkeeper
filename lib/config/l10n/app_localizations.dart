@@ -211,6 +211,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Authenticate to access PassKeeper'**
   String get biometricReason;
+
+  /// No description provided for @noPasswordsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No secrets here...yet!\nTap the button below to add your first password'**
+  String get noPasswordsYet;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
 }
 
 class _AppLocalizationsDelegate
