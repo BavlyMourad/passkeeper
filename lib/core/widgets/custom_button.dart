@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:passkeeper/config/theme/app_colors.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
@@ -58,8 +59,8 @@ class CustomButton extends StatelessWidget {
                       prefixIconPath!,
                       width: 24.0,
                       height: 24.0,
-                      colorFilter: ColorFilter.mode(
-                        Theme.of(context).colorScheme.onPrimary,
+                      colorFilter: const ColorFilter.mode(
+                        AppColors.greyLightest,
                         BlendMode.srcIn,
                       ),
                     ),
@@ -67,9 +68,9 @@ class CustomButton extends StatelessWidget {
                   ],
                   Text(
                     title!,
-                    style: AppStyles.titleSmallSemiBold(context).copyWith(
-                      color: Theme.of(context).colorScheme.buttonTextColor,
-                    ),
+                    style: AppStyles.titleSmallSemiBold(
+                      context,
+                    ).copyWith(color: AppColors.greyLightest),
                   ),
                 ],
               ),

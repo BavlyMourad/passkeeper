@@ -8,12 +8,12 @@ import 'package:passkeeper/core/widgets/app_icon.dart';
 class AppTextField extends StatelessWidget {
   const AppTextField({
     super.key,
-    required this.controller,
-    required this.obscureText,
-    required this.keyboardType,
     required this.prefixIconPath,
     required this.hintText,
+    this.controller,
     this.suffixIconPath,
+    this.obscureText = false,
+    this.keyboardType,
     this.secondarySuffixIconPath,
     this.onSuffixIconPressed,
     this.onSecondarySuffixIconPressed,
@@ -22,9 +22,9 @@ class AppTextField extends StatelessWidget {
     this.validator,
   });
 
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final bool obscureText;
-  final TextInputType keyboardType;
+  final TextInputType? keyboardType;
   final String prefixIconPath;
   final String? suffixIconPath;
   final String? secondarySuffixIconPath;
@@ -48,14 +48,16 @@ class AppTextField extends StatelessWidget {
         hintText: hintText,
         counterText: '', // Hides the default "0/6" counter shown by maxLength
         isDense: context.isMobile, // More compact on mobile
-        prefixIcon: Center(
-          widthFactor: 1.0,
+        prefixIcon: Padding(
+          padding: const EdgeInsets.only(left: 11.0, right: 5.0),
           child: AppIcon(
             path: prefixIconPath,
             size: IconSize.small,
             color: Theme.of(context).colorScheme.onSecondary,
           ),
         ),
+        // To allow AppIcon size itself properly
+        prefixIconConstraints: const BoxConstraints(minWidth: 0.0),
         suffixIcon: (suffixIconPath != null || secondarySuffixIconPath != null)
             // UnconstrainedBox lets the Row shrink to fit its icons and remove those constraints.
             ? UnconstrainedBox(
