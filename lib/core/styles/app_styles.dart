@@ -121,6 +121,17 @@ class AppStyles {
     color: Theme.of(context).colorScheme.onSurface,
   );
 
+  static TextStyle captionSemiBold(BuildContext context) => TextStyle(
+    fontFamily: _fontFamily(context),
+    fontSize: _getResponsiveText(
+      context: context,
+      mobileBaseFontSize: 10.0,
+      tabletBaseFontSize: 12.0,
+    ),
+    fontWeight: FontWeight.w600,
+    color: Theme.of(context).colorScheme.onSurface,
+  );
+
   static TextStyle captionMedium(BuildContext context) => TextStyle(
     fontFamily: _fontFamily(context),
     fontSize: _getResponsiveText(
