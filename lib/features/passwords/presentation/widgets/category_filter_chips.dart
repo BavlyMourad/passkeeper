@@ -12,6 +12,8 @@ class CategoryFilterChips extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Padding(
       padding: EdgeInsetsDirectional.only(
         start: SizeConfig.horizontalPadding(context.isMobile),
@@ -43,15 +45,15 @@ class CategoryFilterChips extends ConsumerWidget {
                 borderRadius: BorderRadiusGeometry.circular(50.0),
               ),
               onSelected: (_) {},
-              selectedColor: Theme.of(context).colorScheme.activeChipBackground,
-              // Inactive chip background color is managed by app theme
+              selectedColor: colorScheme.activeChipBackground,
+              backgroundColor: colorScheme.inactiveChipBackground,
               labelStyle: isSelected
-                  ? AppStyles.bodySmallSemiBold(context).copyWith(
-                      color: Theme.of(context).colorScheme.activeChipText,
-                    )
-                  : AppStyles.bodySmallMedium(context).copyWith(
-                      color: Theme.of(context).colorScheme.inactiveChipText,
-                    ),
+                  ? AppStyles.bodySmallSemiBold(
+                      context,
+                    ).copyWith(color: colorScheme.activeChipText)
+                  : AppStyles.bodySmallMedium(
+                      context,
+                    ).copyWith(color: colorScheme.inactiveChipText),
               showCheckmark: false,
             );
           },
