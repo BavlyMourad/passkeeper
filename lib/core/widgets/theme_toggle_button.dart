@@ -12,7 +12,7 @@ class ThemeToggleButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return IconButton(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      padding: const EdgeInsets.only(left: 12.0),
       onPressed: () => ref.read(appThemeProvider.notifier).toggleTheme(),
       icon: AppIcon(
         path: context.isDarkTheme ? IconPaths.lightMode : IconPaths.darkMode,

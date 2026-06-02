@@ -48,7 +48,15 @@ class PasswordsScreen extends ConsumerWidget {
               ],
             ),
           ),
-          actions: const [LanguageSelectionButton(), ThemeToggleButton()],
+          actions: [
+            const LanguageSelectionButton(),
+            Padding(
+              padding: EdgeInsets.only(
+                right: SizeConfig.horizontalPadding(context.isMobile),
+              ),
+              child: const ThemeToggleButton(),
+            ),
+          ],
         ),
         body: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
