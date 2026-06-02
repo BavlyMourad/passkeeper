@@ -29,4 +29,7 @@ extension AppColorScheme on ColorScheme {
 
   Color get navBarIndicator =>
       AppColors.blueLight.withValues(alpha: _isDarkTheme ? 0.5 : 0.3);
+
+  Color get backButton =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
 }
