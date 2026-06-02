@@ -21,5 +21,6 @@
   "biometricReason": "Authenticate to access PassKeeper",
   "noPasswordsYet": "No secrets here...yet!\nTap the button below to add your first password",
   "search": "Search",
-  "all": "All"
+  "all": "All",
+  "back": "Back"
 }

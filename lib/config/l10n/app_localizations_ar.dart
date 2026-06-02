@@ -79,4 +79,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get all => 'الكل';
+
+  @override
+  String get back => 'رجوع';
 }
