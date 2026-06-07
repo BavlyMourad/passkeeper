@@ -32,4 +32,7 @@ extension AppColorScheme on ColorScheme {
 
   Color get backButton =>
       _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
+
+  Color get appBarAction =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
 }
