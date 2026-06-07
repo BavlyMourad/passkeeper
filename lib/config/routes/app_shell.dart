@@ -7,6 +7,7 @@ import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/extensions/app_color_scheme.dart';
+import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/widgets/app_icon.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 
@@ -16,16 +17,9 @@ class AppShell extends ConsumerWidget {
   final Widget child;
 
   int _locationToIndex(String location) {
-    switch (location) {
-      case AppRoutes.passwords:
-        return 0;
-
-      case AppRoutes.favourites:
-        return 1;
-
-      default:
-        return 0;
-    }
+    if (location.startsWith(AppRoutes.passwords)) return 0;
+    if (location.startsWith(AppRoutes.favourites)) return 1;
+    return 0;
   }
 
   @override
@@ -58,7 +52,16 @@ class AppShell extends ConsumerWidget {
               height: 70.0,
               selectedIndex: selectedIndex,
               indicatorColor: Theme.of(context).colorScheme.navBarIndicator,
-              labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+              labelTextStyle: WidgetStateProperty.resolveWith((states) {
+                if (states.contains(WidgetState.selected)) {
+                  return AppStyles.captionSemiBold(
+                    context,
+                  ).copyWith(color: Theme.of(context).colorScheme.onSecondary);
+                }
+                return AppStyles.captionMedium(
+                  context,
+                ).copyWith(color: Theme.of(context).colorScheme.onSecondary);
+              }),
               onDestinationSelected: (index) {
                 final routes = [AppRoutes.passwords, AppRoutes.favourites];
 
@@ -68,7 +71,7 @@ class AppShell extends ConsumerWidget {
               },
               destinations: [
                 NavigationDestination(
-                  label: '',
+                  label: 'Passwords',
                   icon: AppIcon(
                     path: IconPaths.home,
                     size: IconSize.medium,
@@ -76,7 +79,7 @@ class AppShell extends ConsumerWidget {
                   ),
                 ),
                 NavigationDestination(
-                  label: '',
+                  label: 'Favourites',
                   icon: AppIcon(
                     path: IconPaths.favourite,
                     size: IconSize.medium,
