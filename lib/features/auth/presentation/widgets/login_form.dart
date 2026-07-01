@@ -108,7 +108,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                   : IconPaths.visible,
               onSuffixIconPressed: () =>
                   _toggleObscureText(ObscureTextKeys.pin),
-              hintText: AppLocalizations.of(context)!.enterPinHint,
+              labelText: AppLocalizations.of(context)!.enterPinHint,
             ),
           ),
         ),

@@ -116,7 +116,7 @@ class _CreatePinSheetState extends ConsumerState<CreatePinSheet> {
                     : IconPaths.visible,
                 onSuffixIconPressed: () =>
                     _toggleObscureText(ObscureTextKeys.pin),
-                hintText: AppLocalizations.of(context)!.enterPinHint,
+                labelText: AppLocalizations.of(context)!.enterPinHint,
               ),
 
               const SizedBox(height: 16.0),
@@ -139,7 +139,7 @@ class _CreatePinSheetState extends ConsumerState<CreatePinSheet> {
                     : IconPaths.visible,
                 onSuffixIconPressed: () =>
                     _toggleObscureText(ObscureTextKeys.confirmPin),
-                hintText: AppLocalizations.of(context)!.confirmPinHint,
+                labelText: AppLocalizations.of(context)!.confirmPinHint,
               ),
               const SizedBox(height: 16.0),
 
