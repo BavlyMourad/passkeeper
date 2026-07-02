@@ -23,7 +23,7 @@ class SearchAndFilterBar extends StatelessWidget {
           Expanded(
             child: AppTextField(
               prefixIconPath: IconPaths.search,
-              hintText: AppLocalizations.of(context)!.search,
+              labelText: AppLocalizations.of(context)!.search,
             ),
           ),
           // TODO: Replace with a filter button

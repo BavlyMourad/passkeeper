@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:passkeeper/core/constants/dummy_data.dart';
 import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/password_card.dart';
@@ -13,7 +14,7 @@ class PasswordsList extends StatelessWidget {
         horizontal: SizeConfig.horizontalPadding(context.isMobile),
       ),
       child: GridView.builder(
-        itemCount: 3,
+        itemCount: dummyPasswords.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: context.isMobile ? 1 : 2,
           mainAxisExtent: 72,
@@ -21,7 +22,7 @@ class PasswordsList extends StatelessWidget {
           crossAxisSpacing: 24.0,
         ),
         itemBuilder: (context, index) {
-          return const PasswordCard();
+          return PasswordCard(password: dummyPasswords[index]);
         },
       ),
     );
