@@ -173,37 +173,37 @@ abstract class AppLocalizations {
   /// No description provided for @genericError.
   ///
   /// In en, this message translates to:
-  /// **'Something went wrong. Please try again.'**
+  /// **'Something went wrong. Please try again'**
   String get genericError;
 
   /// No description provided for @pinMismatch.
   ///
   /// In en, this message translates to:
-  /// **'PINs do not match. Please try again.'**
+  /// **'PINs do not match. Please try again'**
   String get pinMismatch;
 
   /// No description provided for @pinTooShort.
   ///
   /// In en, this message translates to:
-  /// **'PIN must be at least 6 digits.'**
+  /// **'PIN must be at least 6 digits'**
   String get pinTooShort;
 
   /// No description provided for @wrongPin.
   ///
   /// In en, this message translates to:
-  /// **'Wrong PIN. Please try again.'**
+  /// **'Wrong PIN. Please try again'**
   String get wrongPin;
 
   /// No description provided for @biometricFailed.
   ///
   /// In en, this message translates to:
-  /// **'Biometric authentication failed.'**
+  /// **'Biometric authentication failed'**
   String get biometricFailed;
 
   /// No description provided for @biometricNotEnrolled.
   ///
   /// In en, this message translates to:
-  /// **'Biometric not set up. Please login with PIN.'**
+  /// **'Biometric not set up. Please login with PIN'**
   String get biometricNotEnrolled;
 
   /// No description provided for @biometricReason.
@@ -235,6 +235,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back'**
   String get back;
+
+  /// No description provided for @view.
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get view;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @titleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get titleHint;
+
+  /// No description provided for @usernameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Email, Username, etc...'**
+  String get usernameHint;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordHint;
+
+  /// No description provided for @confirmPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPasswordHint;
+
+  /// No description provided for @categoryHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get categoryHint;
+
+  /// No description provided for @websiteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get websiteHint;
+
+  /// No description provided for @addNewCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Category'**
+  String get addNewCategory;
+
+  /// No description provided for @addPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Password'**
+  String get addPassword;
+
+  /// No description provided for @fieldRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldRequired;
+
+  /// No description provided for @optional.
+  ///
+  /// In en, this message translates to:
+  /// **' (Optional)'**
+  String get optional;
+
+  /// No description provided for @passwordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match. Please try again'**
+  String get passwordMismatch;
+
+  /// No description provided for @saveChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get saveChanges;
 }
 
 class _AppLocalizationsDelegate

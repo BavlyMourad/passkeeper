@@ -48,23 +48,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
-  String get genericError => 'Something went wrong. Please try again.';
+  String get genericError => 'Something went wrong. Please try again';
 
   @override
-  String get pinMismatch => 'PINs do not match. Please try again.';
+  String get pinMismatch => 'PINs do not match. Please try again';
 
   @override
-  String get pinTooShort => 'PIN must be at least 6 digits.';
+  String get pinTooShort => 'PIN must be at least 6 digits';
 
   @override
-  String get wrongPin => 'Wrong PIN. Please try again.';
+  String get wrongPin => 'Wrong PIN. Please try again';
 
   @override
-  String get biometricFailed => 'Biometric authentication failed.';
+  String get biometricFailed => 'Biometric authentication failed';
 
   @override
   String get biometricNotEnrolled =>
-      'Biometric not set up. Please login with PIN.';
+      'Biometric not set up. Please login with PIN';
 
   @override
   String get biometricReason => 'Authenticate to access PassKeeper';
@@ -81,4 +81,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get back => 'Back';
+
+  @override
+  String get view => 'View';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get titleHint => 'Title';
+
+  @override
+  String get usernameHint => 'Email, Username, etc...';
+
+  @override
+  String get passwordHint => 'Password';
+
+  @override
+  String get confirmPasswordHint => 'Confirm Password';
+
+  @override
+  String get categoryHint => 'Category';
+
+  @override
+  String get websiteHint => 'Website';
+
+  @override
+  String get addNewCategory => 'Add New Category';
+
+  @override
+  String get addPassword => 'Add Password';
+
+  @override
+  String get fieldRequired => 'This field is required';
+
+  @override
+  String get optional => ' (Optional)';
+
+  @override
+  String get passwordMismatch => 'Passwords do not match. Please try again';
+
+  @override
+  String get saveChanges => 'Save Changes';
 }

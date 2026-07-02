@@ -52,27 +52,27 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pinMismatch =>
-      'الأرقام السرية غير متطابقة. يرجى المحاولة مرة أخرى.';
+      'الأرقام السرية غير متطابقة. يرجى المحاولة مرة أخرى';
 
   @override
-  String get pinTooShort => 'يجب أن يتكون الرقم السري من 6 أرقام على الأقل.';
+  String get pinTooShort => 'يجب أن يتكون الرقم السري من 6 أرقام على الأقل';
 
   @override
-  String get wrongPin => 'رمز PIN غير صحيح. يرجى المحاولة مرة أخرى.';
+  String get wrongPin => 'رمز PIN غير صحيح. يرجى المحاولة مرة أخرى';
 
   @override
-  String get biometricFailed => 'فشل التحقق بالبصمة.';
+  String get biometricFailed => 'فشل التحقق بالبصمة';
 
   @override
   String get biometricNotEnrolled =>
-      'لم يتم إعداد البصمة. يرجى تسجيل الدخول باستخدام رمز PIN.';
+      'لم يتم إعداد البصمة. يرجى تسجيل الدخول باستخدام رمز PIN';
 
   @override
   String get biometricReason => 'قم بالمصادقة للوصول إلى PassKeeper';
 
   @override
   String get noPasswordsYet =>
-      'لا توجد أي كلمات مرور هنا... حتى الآن!\nاضغط على الزر أدناه لإضافة أول كلمة مرور لك.';
+      'لا توجد أي كلمات مرور هنا... حتى الآن!\nاضغط على الزر أدناه لإضافة أول كلمة مرور لك';
 
   @override
   String get search => 'بحث';
@@ -82,4 +82,50 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get back => 'رجوع';
+
+  @override
+  String get view => 'العرض';
+
+  @override
+  String get edit => 'تعديل';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get titleHint => 'العنوان';
+
+  @override
+  String get usernameHint => 'البريد الإلكتروني، اسم المستخدم، إلخ...';
+
+  @override
+  String get passwordHint => 'كلمة المرور';
+
+  @override
+  String get confirmPasswordHint => 'تأكيد كلمة المرور';
+
+  @override
+  String get categoryHint => 'الفئة';
+
+  @override
+  String get websiteHint => 'الموقع الإلكتروني';
+
+  @override
+  String get addNewCategory => 'إضافة فئة جديدة';
+
+  @override
+  String get addPassword => 'إضافة كلمة المرور';
+
+  @override
+  String get fieldRequired => 'هذا الحقل مطلوب';
+
+  @override
+  String get optional => ' (اختياري)';
+
+  @override
+  String get passwordMismatch =>
+      'كلمات المرور غير متطابقة. يرجى المحاولة مرة أخرى';
+
+  @override
+  String get saveChanges => 'حفظ التغييرات';
 }
