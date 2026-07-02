@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:passkeeper/config/l10n/app_localizations.dart';
+import 'package:passkeeper/config/theme/app_colors.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
@@ -9,7 +11,7 @@ class AppTextField extends StatelessWidget {
   const AppTextField({
     super.key,
     required this.prefixIconPath,
-    required this.hintText,
+    required this.labelText,
     this.controller,
     this.suffixIconPath,
     this.obscureText = false,
@@ -20,6 +22,8 @@ class AppTextField extends StatelessWidget {
     this.maxLength,
     this.inputFormatters,
     this.validator,
+    this.isOptional = false,
+    this.readOnly = false,
   });
 
   final TextEditingController? controller;
@@ -30,10 +34,12 @@ class AppTextField extends StatelessWidget {
   final String? secondarySuffixIconPath;
   final VoidCallback? onSuffixIconPressed;
   final VoidCallback? onSecondarySuffixIconPressed;
-  final String hintText;
+  final String labelText;
   final int? maxLength;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
+  final bool isOptional;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +47,37 @@ class AppTextField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
+      readOnly: readOnly,
       maxLength: maxLength,
       inputFormatters: inputFormatters,
       validator: validator,
       decoration: InputDecoration(
-        hintText: hintText,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        label: Text.rich(
+          TextSpan(
+            text: labelText,
+            style: AppStyles.bodySmallMedium(
+              context,
+            ).copyWith(color: Theme.of(context).colorScheme.onSecondary),
+            children: isOptional
+                ? [
+                    TextSpan(
+                      text: AppLocalizations.of(context)!.optional,
+                      style: AppStyles.bodySmallMedium(
+                        context,
+                      ).copyWith(color: AppColors.grey),
+                    ),
+                  ]
+                : [],
+          ),
+        ),
         counterText: '', // Hides the default "0/6" counter shown by maxLength
         isDense: context.isMobile, // More compact on mobile
         prefixIcon: Padding(
           padding: const EdgeInsets.only(left: 11.0, right: 5.0),
           child: AppIcon(
             path: prefixIconPath,
-            size: IconSize.small,
+            size: IconSize.medium,
             color: Theme.of(context).colorScheme.onSecondary,
           ),
         ),
@@ -69,10 +94,9 @@ class AppTextField extends StatelessWidget {
                         onTap: onSuffixIconPressed,
                         child: AppIcon(
                           path: suffixIconPath!,
-                          size: IconSize.small,
-                          color: Theme.of(
-                            context,
-                          ).colorScheme.onSecondary.withValues(alpha: 0.5),
+                          size: IconSize.medium,
+                          color: Theme.of(context).colorScheme.onSecondary
+                              .withValues(alpha: obscureText ? 0.5 : 1.0),
                         ),
                       ),
                     if (secondarySuffixIconPath != null)
@@ -82,7 +106,7 @@ class AppTextField extends StatelessWidget {
                           onTap: onSecondarySuffixIconPressed,
                           child: AppIcon(
                             path: secondarySuffixIconPath!,
-                            size: IconSize.small,
+                            size: IconSize.medium,
                             color: Theme.of(context).colorScheme.onSecondary,
                           ),
                         ),
@@ -91,9 +115,6 @@ class AppTextField extends StatelessWidget {
                 ),
               )
             : null,
-        hintStyle: AppStyles.bodySmallMedium(
-          context,
-        ).copyWith(color: Theme.of(context).colorScheme.onSecondary),
         errorStyle: AppStyles.bodySmallMedium(
           context,
         ).copyWith(color: Theme.of(context).colorScheme.error),
