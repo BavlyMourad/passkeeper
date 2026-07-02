@@ -13,4 +13,6 @@ class ObscureText extends _$ObscureText {
 abstract class ObscureTextKeys {
   static const String pin = 'pin';
   static const String confirmPin = 'confirmPin';
+  static const String password = 'password';
+  static const String confirmPassword = 'confirmPassword';
 }
