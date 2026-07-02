@@ -9,6 +9,8 @@ class IconPaths {
 
   static const String back = "assets/icons/back.svg";
 
+  static const String cancel = "assets/icons/cancel.svg";
+
   static const String categories1 = "assets/icons/categories1.svg";
 
   static const String categories2 = "assets/icons/categories2.svg";
@@ -21,7 +23,7 @@ class IconPaths {
 
   static const String edit = "assets/icons/edit.svg";
 
-  static const String email = "assets/icons/email.svg";
+  static const String username = "assets/icons/username.svg";
 
   static const String favourite = "assets/icons/favourite.svg";
 
