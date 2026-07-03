@@ -38,4 +38,10 @@ extension AppColorScheme on ColorScheme {
 
   Color get editButton =>
       _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
+
+  Color get categorySelectField =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
+
+  Color get chipDelete =>
+      _isDarkTheme ? AppColors.blueDark : AppColors.greyLightest;
 }

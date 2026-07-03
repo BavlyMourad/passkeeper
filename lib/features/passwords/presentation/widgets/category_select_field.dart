@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:passkeeper/config/l10n/app_localizations.dart';
-import 'package:passkeeper/config/theme/app_colors.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/dummy_data.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
@@ -50,19 +49,19 @@ class CategorySelectField extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 12.0),
                 child: Transform.rotate(
                   angle: -math.pi / 2,
-                  child: const AppIcon(
+                  child: AppIcon(
                     path: IconPaths.back,
                     size: IconSize.small,
-                    color: AppColors.blueMedium,
+                    color: Theme.of(context).colorScheme.categorySelectField,
                   ),
                 ),
               ),
             ),
             child: Text(
               AppLocalizations.of(context)!.categoryHint,
-              style: AppStyles.bodySmallMedium(
-                context,
-              ).copyWith(color: AppColors.blueMedium),
+              style: AppStyles.bodySmallMedium(context).copyWith(
+                color: Theme.of(context).colorScheme.categorySelectField,
+              ),
             ),
           ),
           itemBuilder: (context) => [
@@ -71,9 +70,9 @@ class CategorySelectField extends StatelessWidget {
                 value: category.id,
                 child: Text(
                   category.name,
-                  style: AppStyles.bodySmallMedium(
-                    context,
-                  ).copyWith(color: AppColors.blueMedium),
+                  style: AppStyles.bodySmallMedium(context).copyWith(
+                    color: Theme.of(context).colorScheme.categorySelectField,
+                  ),
                 ),
               ),
             ),
@@ -82,12 +81,15 @@ class CategorySelectField extends StatelessWidget {
               child: Row(
                 spacing: 8,
                 children: [
-                  const Icon(Icons.add, color: AppColors.blueMedium),
+                  Icon(
+                    Icons.add,
+                    color: Theme.of(context).colorScheme.categorySelectField,
+                  ),
                   Text(
                     AppLocalizations.of(context)!.addNewCategory,
-                    style: AppStyles.bodySmallSemiBold(
-                      context,
-                    ).copyWith(color: AppColors.blueMedium),
+                    style: AppStyles.bodySmallSemiBold(context).copyWith(
+                      color: Theme.of(context).colorScheme.categorySelectField,
+                    ),
                   ),
                 ],
               ),
@@ -123,10 +125,10 @@ class CategorySelectField extends StatelessWidget {
                     context,
                   ).colorScheme.activeChipBackground,
                   onDeleted: () => onCategoryRemoved(id),
-                  deleteIcon: const AppIcon(
+                  deleteIcon: AppIcon(
                     path: IconPaths.cancel,
                     size: IconSize.small,
-                    color: AppColors.white,
+                    color: Theme.of(context).colorScheme.chipDelete,
                   ),
                 );
               }).toList(),
