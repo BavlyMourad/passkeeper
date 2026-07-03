@@ -40,11 +40,9 @@ class PasswordFormHeader extends StatelessWidget {
             ],
           ),
         ),
-        // TODO: FIX SPLASH
-        InkWell(
-          onTap: () {},
-          borderRadius: BorderRadius.circular(16.0),
-          child: AppIcon(
+        IconButton(
+          onPressed: () {},
+          icon: AppIcon(
             path: IconPaths.favourite,
             size: IconSize.medium,
             color: Theme.of(context).colorScheme.onSecondary,
