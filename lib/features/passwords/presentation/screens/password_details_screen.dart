@@ -54,7 +54,9 @@ class _PasswordDetailsScreenState extends ConsumerState<PasswordDetailsScreen> {
                 end: SizeConfig.horizontalPadding(context.isMobile),
               ),
               child: Text(
-                AppLocalizations.of(context)!.view,
+                _isEditingMode
+                    ? AppLocalizations.of(context)!.edit
+                    : AppLocalizations.of(context)!.view,
                 style: AppStyles.titleSmallSemiBold(
                   context,
                 ).copyWith(color: Theme.of(context).colorScheme.appBarAction),
@@ -67,39 +69,49 @@ class _PasswordDetailsScreenState extends ConsumerState<PasswordDetailsScreen> {
             padding: EdgeInsets.symmetric(
               horizontal: SizeConfig.horizontalPadding(context.isMobile),
             ),
-            child: Column(
-              children: [
-                const SizedBox(height: 50.0),
-
-                PasswordFormHeader(password: password),
-
-                const SizedBox(height: 50.0),
-
-                PasswordForm(
-                  password: password,
-                  onSubmit: (password) {
-                    _toggleEditMode();
-                  },
-                  isReadOnly: !_isEditingMode,
+            child: Center(
+              child: SizedBox(
+                width: SizeConfig.tabletConstrainedWidth(
+                  context.screenWidth,
+                  context.isMobile,
                 ),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 50.0),
 
-                if (!_isEditingMode) ...[
-                  const SizedBox(height: 32.0),
-                  Row(
-                    spacing: 16.0,
-                    children: [
-                      Expanded(child: EditButton(onPressed: _toggleEditMode)),
-                      Expanded(
-                        child: CustomButton(
-                          onPressed: () {},
-                          title: AppLocalizations.of(context)!.delete,
-                          prefixIconPath: IconPaths.delete,
-                        ),
+                    PasswordFormHeader(password: password),
+
+                    const SizedBox(height: 50.0),
+
+                    PasswordForm(
+                      password: password,
+                      onSubmit: (password) {
+                        _toggleEditMode();
+                      },
+                      isReadOnly: !_isEditingMode,
+                    ),
+
+                    if (!_isEditingMode) ...[
+                      const SizedBox(height: 32.0),
+                      Row(
+                        spacing: 16.0,
+                        children: [
+                          Expanded(
+                            child: EditButton(onPressed: _toggleEditMode),
+                          ),
+                          Expanded(
+                            child: CustomButton(
+                              onPressed: () {},
+                              title: AppLocalizations.of(context)!.delete,
+                              prefixIconPath: IconPaths.delete,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
-                  ),
-                ],
-              ],
+                  ],
+                ),
+              ),
             ),
           ),
         ),

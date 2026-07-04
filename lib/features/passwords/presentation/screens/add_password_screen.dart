@@ -60,18 +60,26 @@ class AddPasswordScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: SizeConfig.horizontalPadding(context.isMobile),
             ),
-            child: Column(
-              children: [
-                const SizedBox(height: 50.0),
+            child: Center(
+              child: SizedBox(
+                width: SizeConfig.tabletConstrainedWidth(
+                  context.screenWidth,
+                  context.isMobile,
+                ),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 50.0),
 
-                const PasswordFormHeader(),
+                    const PasswordFormHeader(),
 
-                const SizedBox(height: 50.0),
+                    const SizedBox(height: 50.0),
 
-                PasswordForm(onSubmit: (password) {}),
+                    PasswordForm(onSubmit: (password) {}),
 
-                const SizedBox(height: 32.0),
-              ],
+                    const SizedBox(height: 32.0),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
