@@ -43,7 +43,9 @@ class PasswordFormHeader extends StatelessWidget {
         IconButton(
           onPressed: () {},
           icon: AppIcon(
-            path: IconPaths.favourite,
+            path: password?.isFavourite ?? false
+                ? IconPaths.favourite
+                : IconPaths.favouriteOutline,
             size: IconSize.medium,
             color: Theme.of(context).colorScheme.onSecondary,
           ),
