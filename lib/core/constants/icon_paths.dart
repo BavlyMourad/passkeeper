@@ -27,6 +27,8 @@ class IconPaths {
 
   static const String favourite = "assets/icons/favourite.svg";
 
+  static const String favouriteOutline = "assets/icons/favourite_outline.svg";
+
   static const String fingerprint = "assets/icons/fingerprint.svg";
 
   static const String home = "assets/icons/home.svg";
