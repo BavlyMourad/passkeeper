@@ -16,8 +16,10 @@ class AppRoutes {
   static const addPassword = '/add_password';
   static const passwordDetails = '/passwords/:id';
   static const favourites = '/favourites';
+  static const favouritePasswordDetails = '/favourites/:id';
 
   static String passwordDetailsPath(String id) => '/passwords/$id';
+  static String favouritePasswordDetailsPath(String id) => '/favourites/$id';
 
   // GoRouter configuration
   static final router = GoRouter(
@@ -50,6 +52,15 @@ class AppRoutes {
           GoRoute(
             path: favourites,
             builder: (_, __) => const FavouritesScreen(),
+          ),
+
+          GoRoute(
+            path: favouritePasswordDetails,
+            builder: (context, state) {
+              final id = state.pathParameters['id']!;
+
+              return PasswordDetailsScreen(id: id);
+            },
           ),
         ],
       ),

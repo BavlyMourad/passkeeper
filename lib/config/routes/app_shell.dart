@@ -70,6 +70,7 @@ class AppShell extends ConsumerWidget {
                 context.go(route);
               },
               destinations: [
+                // TODO: Replace hardcoded strings
                 NavigationDestination(
                   label: 'Passwords',
                   icon: AppIcon(
@@ -81,7 +82,7 @@ class AppShell extends ConsumerWidget {
                 NavigationDestination(
                   label: 'Favourites',
                   icon: AppIcon(
-                    path: IconPaths.favourite,
+                    path: IconPaths.favouriteOutline,
                     size: IconSize.medium,
                     color: Theme.of(context).colorScheme.onSecondary,
                   ),

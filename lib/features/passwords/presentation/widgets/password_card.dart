@@ -9,14 +9,28 @@ import 'package:passkeeper/features/passwords/domain/models/password.dart';
 
 // TODO: Remove hardcoded data when controller is ready
 class PasswordCard extends StatelessWidget {
-  const PasswordCard({super.key, required this.password});
+  const PasswordCard({
+    super.key,
+    required this.password,
+    this.source = PasswordDetailsSource.passwords,
+  });
 
   final Password password;
+  final PasswordDetailsSource source;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.push(AppRoutes.passwordDetailsPath(password.id)),
+      onTap: () {
+        switch (source) {
+          case PasswordDetailsSource.passwords:
+            context.push(AppRoutes.passwordDetailsPath(password.id));
+
+          case PasswordDetailsSource.favourites:
+            context.push(AppRoutes.favouritePasswordDetailsPath(password.id));
+        }
+        ;
+      },
       child: Card(
         margin: const EdgeInsets.all(0),
         child: Center(
@@ -48,7 +62,9 @@ class PasswordCard extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: AppIcon(
-                    path: IconPaths.favourite,
+                    path: password.isFavourite
+                        ? IconPaths.favourite
+                        : IconPaths.favouriteOutline,
                     size: IconSize.small,
                     color: Theme.of(context).colorScheme.onSecondary,
                   ),
