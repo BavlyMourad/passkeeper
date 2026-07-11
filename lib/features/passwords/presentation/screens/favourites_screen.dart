@@ -10,7 +10,6 @@ import 'package:passkeeper/core/widgets/app_image.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 import 'package:passkeeper/core/widgets/language_selection_button.dart';
 import 'package:passkeeper/core/widgets/theme_toggle_button.dart';
-import 'package:passkeeper/features/passwords/presentation/widgets/add_password_fab.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/category_filter_chips.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/passwords_list.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/search_and_filter_bar.dart';
@@ -86,7 +85,6 @@ class FavouritesScreen extends ConsumerWidget {
             ),
           ],
         ),
-        floatingActionButton: const AddPasswordFab(),
       ),
     );
   }
