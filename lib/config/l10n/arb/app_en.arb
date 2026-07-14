@@ -37,5 +37,7 @@
   "fieldRequired": "This field is required",
   "optional": " (Optional)",
   "passwordMismatch": "Passwords do not match. Please try again",
-  "saveChanges": "Save Changes"
+  "saveChanges": "Save Changes",
+  "sessionExpired": "Your session has expired. Please log in again",
+  "passwordSaved": "Password saved"
 }

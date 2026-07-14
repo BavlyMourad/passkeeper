@@ -128,4 +128,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get saveChanges => 'حفظ التغييرات';
+
+  @override
+  String get sessionExpired => 'انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى';
+
+  @override
+  String get passwordSaved => 'تم حفظ كلمة المرور';
 }

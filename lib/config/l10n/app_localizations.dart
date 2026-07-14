@@ -325,6 +325,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save Changes'**
   String get saveChanges;
+
+  /// No description provided for @sessionExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session has expired. Please log in again'**
+  String get sessionExpired;
+
+  /// No description provided for @passwordSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Password saved'**
+  String get passwordSaved;
 }
 
 class _AppLocalizationsDelegate

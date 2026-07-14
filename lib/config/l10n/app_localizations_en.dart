@@ -126,4 +126,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get saveChanges => 'Save Changes';
+
+  @override
+  String get sessionExpired => 'Your session has expired. Please log in again';
+
+  @override
+  String get passwordSaved => 'Password saved';
 }
