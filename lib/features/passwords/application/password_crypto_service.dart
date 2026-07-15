@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:cryptography/cryptography.dart';
+import 'package:passkeeper/core/errors/app_exception.dart';
 import 'package:passkeeper/core/providers/mek_notifier.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -20,7 +21,7 @@ class PasswordCryptoService {
   Uint8List get _mek {
     final mek = _ref.read(mekProvider);
     if (mek == null) {
-      throw StateError('MEK not available — user not unlocked');
+      throw SessionExpiredException();
     }
     return mek;
   }
