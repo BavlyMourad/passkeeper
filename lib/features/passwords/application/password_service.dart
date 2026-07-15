@@ -1,4 +1,5 @@
 import 'package:passkeeper/features/passwords/data/password_repository.dart';
+import 'package:passkeeper/features/passwords/presentation/controllers/password_details_controller.dart';
 import 'package:passkeeper/features/passwords/presentation/providers/passwords_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -27,5 +28,6 @@ class PasswordService {
     );
 
     _ref.invalidate(passwordsProvider);
+    _ref.invalidate(passwordDetailsControllerProvider);
   }
 }
