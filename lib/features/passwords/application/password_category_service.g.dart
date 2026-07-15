@@ -55,4 +55,4 @@ final class PasswordCategoryServiceProvider
 }
 
 String _$passwordCategoryServiceHash() =>
-    r'e716caf2120ac59f7b7a5916728f3bf4ab098d6e';
+    r'19b87b8e7566fd369fa11ac592a5bee84bf17a44';
