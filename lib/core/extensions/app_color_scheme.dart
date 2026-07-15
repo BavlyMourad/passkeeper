@@ -44,4 +44,7 @@ extension AppColorScheme on ColorScheme {
 
   Color get chipDelete =>
       _isDarkTheme ? AppColors.blueDark : AppColors.greyLightest;
+
+  Color get snackBar =>
+      _isDarkTheme ? AppColors.blueLight : AppColors.blueMedium;
 }
