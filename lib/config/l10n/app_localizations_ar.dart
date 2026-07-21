@@ -134,4 +134,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordSaved => 'تم حفظ كلمة المرور';
+
+  @override
+  String get favourites => 'المفضلة';
 }

@@ -132,4 +132,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordSaved => 'Password saved';
+
+  @override
+  String get favourites => 'Favourites';
 }

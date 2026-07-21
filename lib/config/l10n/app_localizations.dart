@@ -337,6 +337,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password saved'**
   String get passwordSaved;
+
+  /// No description provided for @favourites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourites'**
+  String get favourites;
 }
 
 class _AppLocalizationsDelegate
