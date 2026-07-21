@@ -9,8 +9,10 @@ import 'package:passkeeper/core/widgets/app_image.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 import 'package:passkeeper/core/widgets/language_selection_button.dart';
 import 'package:passkeeper/core/widgets/theme_toggle_button.dart';
+import 'package:passkeeper/features/passwords/presentation/providers/passwords_provider.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/add_password_fab.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/category_filter_chips.dart';
+import 'package:passkeeper/features/passwords/presentation/widgets/no_passwords_yet.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/passwords_list.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/search_and_filter_bar.dart';
 
@@ -19,6 +21,8 @@ class PasswordsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final passwords = ref.watch(passwordsProvider);
+
     return GradientBackground(
       begin: context.isDarkTheme ? Alignment.bottomRight : Alignment.centerLeft,
       end: context.isDarkTheme ? Alignment.topLeft : Alignment.topRight,
@@ -58,26 +62,28 @@ class PasswordsScreen extends ConsumerWidget {
             ),
           ],
         ),
-        body: const Column(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // No passwords yet
-            // TODO: handle later when we create controller
-            // const NoPasswordsYet(),
-            SizedBox(height: 24.0),
+            if (passwords.isEmpty)
+              const NoPasswordsYet()
+            else ...[
+              const SizedBox(height: 60.0),
 
-            // Search and filter bar
-            SearchAndFilterBar(),
+              // Search and filter bar
+              const SearchAndFilterBar(),
 
-            SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
 
-            // Category filter chips
-            CategoryFilterChips(),
+              // Category filter chips
+              const CategoryFilterChips(),
 
-            SizedBox(height: 40.0),
+              const SizedBox(height: 40.0),
 
-            // Passwords list
-            Expanded(child: PasswordsList()),
+              // Passwords list
+              Expanded(child: PasswordsList(passwords: passwords)),
+            ],
           ],
         ),
         floatingActionButton: const AddPasswordFab(),
