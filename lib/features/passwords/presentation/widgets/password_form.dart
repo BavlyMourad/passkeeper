@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passkeeper/config/l10n/app_localizations.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
@@ -6,7 +7,9 @@ import 'package:passkeeper/core/providers/obscure_text.dart';
 import 'package:passkeeper/core/validators/app_form_validators.dart';
 import 'package:passkeeper/core/widgets/app_text_field.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
+import 'package:passkeeper/core/widgets/loader.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
+import 'package:passkeeper/features/passwords/presentation/controllers/password_details_controller.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/category_select_field.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/category_view_field.dart';
 
@@ -15,11 +18,13 @@ class PasswordForm extends ConsumerStatefulWidget {
     super.key,
     this.password,
     this.isReadOnly = false,
+    this.isLoading = false,
     required this.onSubmit,
   });
 
   final Password? password;
   final bool isReadOnly;
+  final bool isLoading;
   final void Function(Password password) onSubmit;
 
   @override
@@ -38,6 +43,7 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   List<String> _selectedCategoryIds = [];
+  bool _isPasswordRevealed = false;
 
   @override
   void initState() {
@@ -53,6 +59,16 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
   }
 
   @override
+  void didUpdateWidget(covariant PasswordForm oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    final enteringEditMode = oldWidget.isReadOnly && !widget.isReadOnly;
+    if (enteringEditMode && widget.password != null) {
+      _decryptIntoFields();
+    }
+  }
+
+  @override
   void dispose() {
     _titleController.dispose();
     _usernameController.dispose();
@@ -61,6 +77,18 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
     _websiteController.dispose();
 
     super.dispose();
+  }
+
+  Future<void> _decryptIntoFields() async {
+    final plaintext = await ref
+        .read(passwordDetailsControllerProvider(widget.password!.id).notifier)
+        .decryptPassword();
+    if (!mounted) return;
+    setState(() {
+      _passwordController.text = plaintext;
+      _confirmPasswordController.text = plaintext;
+      _isPasswordRevealed = true;
+    });
   }
 
   void _toggleObscureText(String key) {
@@ -81,15 +109,17 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
       child: Column(
         children: [
           // Title Field
-          AppTextField(
-            controller: _titleController,
-            readOnly: widget.isReadOnly,
-            validator: (value) => AppFormValidators.required(context, value),
-            prefixIconPath: IconPaths.service,
-            labelText: AppLocalizations.of(context)!.titleHint,
-          ),
+          if (!widget.isReadOnly) ...[
+            AppTextField(
+              controller: _titleController,
+              readOnly: widget.isReadOnly,
+              validator: (value) => AppFormValidators.required(context, value),
+              prefixIconPath: IconPaths.service,
+              labelText: AppLocalizations.of(context)!.titleHint,
+            ),
 
-          const SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
+          ],
 
           // Email/Username Field
           AppTextField(
@@ -113,10 +143,38 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
             suffixIconPath: isPasswordObscured
                 ? IconPaths.invisible
                 : IconPaths.visible,
-            onSuffixIconPressed: () =>
-                _toggleObscureText(ObscureTextKeys.password),
+            onSuffixIconPressed: () async {
+              if (widget.isReadOnly &&
+                  widget.password != null &&
+                  !_isPasswordRevealed) {
+                final plaintext = await ref
+                    .read(
+                      passwordDetailsControllerProvider(
+                        widget.password!.id,
+                      ).notifier,
+                    )
+                    .decryptPassword();
+                if (!mounted) return;
+                setState(() {
+                  _passwordController.text = plaintext;
+                  _isPasswordRevealed = true;
+                });
+              }
+              _toggleObscureText(ObscureTextKeys.password);
+            },
             secondarySuffixIconPath: IconPaths.copy,
-            onSecondarySuffixIconPressed: () {},
+            onSecondarySuffixIconPressed: () async {
+              final textToCopy = widget.password == null || _isPasswordRevealed
+                  ? _passwordController.text
+                  : await ref
+                        .read(
+                          passwordDetailsControllerProvider(
+                            widget.password!.id,
+                          ).notifier,
+                        )
+                        .decryptPassword();
+              await Clipboard.setData(ClipboardData(text: textToCopy));
+            },
             labelText: AppLocalizations.of(context)!.passwordHint,
           ),
 
@@ -187,41 +245,45 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
           if (!widget.isReadOnly) ...[
             const SizedBox(height: 32.0),
 
-            CustomButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  final updated =
-                      (widget.password ??
-                              Password(
-                                id: '1239',
-                                title: '',
-                                encryptedPassword: '',
-                                categoryIds: _selectedCategoryIds,
-                                isFavourite: false,
-                                createdAt: DateTime.now(),
-                                updatedAt: DateTime.now(),
-                                iv: '',
-                              ))
-                          .copyWith(
-                            title: _titleController.text.trim(),
-                            username: _usernameController.text.trim().isEmpty
-                                ? null
-                                : _usernameController.text.trim(),
-                            encryptedPassword: _passwordController.text.trim(),
-                            url: _websiteController.text.trim().isEmpty
-                                ? null
-                                : _websiteController.text.trim(),
-                            categoryIds: _selectedCategoryIds,
-                            updatedAt: DateTime.now(),
-                          );
-                  widget.onSubmit(updated);
-                }
-              },
-              prefixIconPath: IconPaths.save,
-              title: widget.password != null
-                  ? AppLocalizations.of(context)!.saveChanges
-                  : AppLocalizations.of(context)!.addPassword,
-            ),
+            widget.isLoading
+                ? const Loader()
+                : CustomButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        final updated =
+                            (widget.password ??
+                                    Password(
+                                      id: '',
+                                      title: '',
+                                      encryptedPassword: '',
+                                      categoryIds: _selectedCategoryIds,
+                                      isFavourite: false,
+                                      createdAt: DateTime.now(),
+                                      updatedAt: DateTime.now(),
+                                      iv: '',
+                                    ))
+                                .copyWith(
+                                  title: _titleController.text.trim(),
+                                  username:
+                                      _usernameController.text.trim().isEmpty
+                                      ? null
+                                      : _usernameController.text.trim(),
+                                  encryptedPassword: _passwordController.text
+                                      .trim(),
+                                  url: _websiteController.text.trim().isEmpty
+                                      ? null
+                                      : _websiteController.text.trim(),
+                                  categoryIds: _selectedCategoryIds,
+                                  updatedAt: DateTime.now(),
+                                );
+                        widget.onSubmit(updated);
+                      }
+                    },
+                    prefixIconPath: IconPaths.save,
+                    title: widget.password != null
+                        ? AppLocalizations.of(context)!.saveChanges
+                        : AppLocalizations.of(context)!.addPassword,
+                  ),
           ],
         ],
       ),

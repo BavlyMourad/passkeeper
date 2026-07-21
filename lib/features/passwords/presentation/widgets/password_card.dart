@@ -7,7 +7,6 @@ import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/widgets/app_icon.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 
-// TODO: Remove hardcoded data when controller is ready
 class PasswordCard extends StatelessWidget {
   const PasswordCard({
     super.key,
@@ -29,7 +28,6 @@ class PasswordCard extends StatelessWidget {
           case PasswordDetailsSource.favourites:
             context.push(AppRoutes.favouritePasswordDetailsPath(password.id));
         }
-        ;
       },
       child: Card(
         margin: const EdgeInsets.all(0),
