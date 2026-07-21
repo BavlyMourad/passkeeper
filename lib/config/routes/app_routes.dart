@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:passkeeper/config/routes/app_shell.dart';
 import 'package:passkeeper/features/auth/presentation/screens/login_screen.dart';
+import 'package:passkeeper/features/categories/presentation/screens/categories_screen.dart';
 import 'package:passkeeper/features/passwords/presentation/screens/add_password_screen.dart';
 import 'package:passkeeper/features/passwords/presentation/screens/favourites_screen.dart';
 import 'package:passkeeper/features/passwords/presentation/screens/password_details_screen.dart';
@@ -17,6 +18,7 @@ class AppRoutes {
   static const passwordDetails = '/passwords/:id';
   static const favourites = '/favourites';
   static const favouritePasswordDetails = '/favourites/:id';
+  static const categories = '/categories';
 
   static String passwordDetailsPath(String id) => '/passwords/$id';
   static String favouritePasswordDetailsPath(String id) => '/favourites/$id';
@@ -61,6 +63,11 @@ class AppRoutes {
 
               return PasswordDetailsScreen(id: id);
             },
+          ),
+
+          GoRoute(
+            path: categories,
+            builder: (_, __) => const CategoriesScreen(),
           ),
         ],
       ),

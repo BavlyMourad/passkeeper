@@ -19,6 +19,7 @@ class AppShell extends ConsumerWidget {
   int _locationToIndex(String location) {
     if (location.startsWith(AppRoutes.passwords)) return 0;
     if (location.startsWith(AppRoutes.favourites)) return 1;
+    if (location.startsWith(AppRoutes.categories)) return 2;
     return 0;
   }
 
@@ -63,7 +64,11 @@ class AppShell extends ConsumerWidget {
                 ).copyWith(color: Theme.of(context).colorScheme.onSecondary);
               }),
               onDestinationSelected: (index) {
-                final routes = [AppRoutes.passwords, AppRoutes.favourites];
+                final routes = [
+                  AppRoutes.passwords,
+                  AppRoutes.favourites,
+                  AppRoutes.categories,
+                ];
 
                 final route = routes[index];
 
@@ -83,6 +88,14 @@ class AppShell extends ConsumerWidget {
                   label: 'Favourites',
                   icon: AppIcon(
                     path: IconPaths.favouriteOutline,
+                    size: IconSize.medium,
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
+                ),
+                NavigationDestination(
+                  label: 'Categories',
+                  icon: AppIcon(
+                    path: IconPaths.categories1,
                     size: IconSize.medium,
                     color: Theme.of(context).colorScheme.onSecondary,
                   ),
