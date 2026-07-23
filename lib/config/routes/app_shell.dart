@@ -38,70 +38,64 @@ class AppShell extends ConsumerWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: AppColors.black.withValues(alpha: 0.25),
-                blurRadius: 16.0,
+                color: AppColors.black.withValues(alpha: 0.10),
+                blurRadius: 12.0,
                 offset: const Offset(0.0, -4.0),
               ),
             ],
           ),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(24.0),
-              topRight: Radius.circular(24.0),
-            ),
-            child: NavigationBar(
-              height: 70.0,
-              selectedIndex: selectedIndex,
-              indicatorColor: Theme.of(context).colorScheme.navBarIndicator,
-              labelTextStyle: WidgetStateProperty.resolveWith((states) {
-                if (states.contains(WidgetState.selected)) {
-                  return AppStyles.captionSemiBold(
-                    context,
-                  ).copyWith(color: Theme.of(context).colorScheme.onSecondary);
-                }
-                return AppStyles.captionMedium(
+          child: NavigationBar(
+            height: 70.0,
+            selectedIndex: selectedIndex,
+            indicatorColor: Theme.of(context).colorScheme.navBarIndicator,
+            labelTextStyle: WidgetStateProperty.resolveWith((states) {
+              if (states.contains(WidgetState.selected)) {
+                return AppStyles.captionSemiBold(
                   context,
                 ).copyWith(color: Theme.of(context).colorScheme.onSecondary);
-              }),
-              onDestinationSelected: (index) {
-                final routes = [
-                  AppRoutes.passwords,
-                  AppRoutes.favourites,
-                  AppRoutes.categories,
-                ];
+              }
+              return AppStyles.captionMedium(
+                context,
+              ).copyWith(color: Theme.of(context).colorScheme.onSecondary);
+            }),
+            onDestinationSelected: (index) {
+              final routes = [
+                AppRoutes.passwords,
+                AppRoutes.favourites,
+                AppRoutes.categories,
+              ];
 
-                final route = routes[index];
+              final route = routes[index];
 
-                context.go(route);
-              },
-              destinations: [
-                // TODO: Replace hardcoded strings
-                NavigationDestination(
-                  label: 'Passwords',
-                  icon: AppIcon(
-                    path: IconPaths.home,
-                    size: IconSize.medium,
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
+              context.go(route);
+            },
+            destinations: [
+              // TODO: Replace hardcoded strings
+              NavigationDestination(
+                label: 'Passwords',
+                icon: AppIcon(
+                  path: IconPaths.home,
+                  size: IconSize.medium,
+                  color: Theme.of(context).colorScheme.onSecondary,
                 ),
-                NavigationDestination(
-                  label: 'Favourites',
-                  icon: AppIcon(
-                    path: IconPaths.favouriteOutline,
-                    size: IconSize.medium,
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
+              ),
+              NavigationDestination(
+                label: 'Favourites',
+                icon: AppIcon(
+                  path: IconPaths.favouriteOutline,
+                  size: IconSize.medium,
+                  color: Theme.of(context).colorScheme.onSecondary,
                 ),
-                NavigationDestination(
-                  label: 'Categories',
-                  icon: AppIcon(
-                    path: IconPaths.categories1,
-                    size: IconSize.medium,
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
+              ),
+              NavigationDestination(
+                label: 'Categories',
+                icon: AppIcon(
+                  path: IconPaths.categories1,
+                  size: IconSize.medium,
+                  color: Theme.of(context).colorScheme.onSecondary,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
