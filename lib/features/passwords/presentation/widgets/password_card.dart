@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:passkeeper/config/routes/app_routes.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/widgets/app_icon.dart';
+import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 
-class PasswordCard extends StatelessWidget {
+class PasswordCard extends ConsumerWidget {
   const PasswordCard({
     super.key,
     required this.password,
@@ -18,7 +20,7 @@ class PasswordCard extends StatelessWidget {
   final PasswordDetailsSource source;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
       onTap: () {
         switch (source) {
@@ -58,7 +60,11 @@ class PasswordCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    ref
+                        .read(passwordServiceProvider)
+                        .toggleFavourite(password.id);
+                  },
                   icon: AppIcon(
                     path: password.isFavourite
                         ? IconPaths.favourite
