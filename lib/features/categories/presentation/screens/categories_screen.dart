@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passkeeper/core/constants/app_strings.dart';
 import 'package:passkeeper/core/constants/dummy_data.dart';
+import 'package:passkeeper/core/constants/icon_paths.dart';
 import 'package:passkeeper/core/constants/image_paths.dart';
 import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
+import 'package:passkeeper/core/utils/app_utils.dart';
 import 'package:passkeeper/core/widgets/app_image.dart';
+import 'package:passkeeper/core/widgets/app_text_field.dart';
+import 'package:passkeeper/core/widgets/custom_button.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/search_and_filter_bar.dart';
 
@@ -77,24 +81,45 @@ class CategoriesScreen extends ConsumerWidget {
                 runSpacing: 24.0,
                 children: [
                   ActionChip(
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    visualDensity: VisualDensity.compact,
                     avatar: const Icon(Icons.add, size: 18),
                     label: const Text("Create New"),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(50.0),
+                    ),
                     onPressed: () {
-                      showModalBottomSheet(
+                      AppUtils.showBottomModalSheet(
                         context: context,
-                        builder: (context) {
-                          return const SizedBox(
-                            height: 300,
-                            child: Center(child: Text("Create New Item")),
-                          );
-                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "Add New Category",
+                              style: AppStyles.headlineSemiBold(context),
+                            ),
+                            const SizedBox(height: 16.0),
+                            const AppTextField(
+                              prefixIconPath: IconPaths.categories2,
+                              labelText: 'Category name',
+                            ),
+                            const SizedBox(height: 16.0),
+                            CustomButton(onPressed: () {}, title: 'Create'),
+                            const SizedBox(height: 24.0),
+                          ],
+                        ),
                       );
                     },
                   ),
 
                   ...dummyCategories.map((category) {
                     return ActionChip(
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      visualDensity: VisualDensity.compact,
                       label: Text(category.name),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusGeometry.circular(50.0),
+                      ),
                       onPressed: () {
                         print(
                           'Category ID: ${category.id}, Category Name: ${category.name}',
