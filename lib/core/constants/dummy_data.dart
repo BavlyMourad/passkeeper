@@ -8,11 +8,14 @@ class Category {
 }
 
 List<Category> dummyCategories = [
-  Category(id: '1', name: 'Bank'),
+  Category(id: '1', name: 'Apps'),
   Category(id: '2', name: 'Social Media'),
-  Category(id: '3', name: 'Games'),
-  Category(id: '4', name: 'Apps'),
-  Category(id: '5', name: 'Work'),
+  Category(id: '3', name: 'Work'),
+  Category(id: '4', name: 'Emails'),
+  Category(id: '5', name: 'Banking'),
+  Category(id: '6', name: 'Family Accounts'),
+  Category(id: '7', name: 'Personal'),
+  Category(id: '8', name: 'Games'),
 ];
 
 List<Password> dummyPasswords = [
