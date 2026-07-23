@@ -72,7 +72,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noPasswordsYet =>
-      'لا توجد أي كلمات مرور هنا... حتى الآن!\nاضغط على الزر أدناه لإضافة أول كلمة مرور لك';
+      'لا توجد أي كلمات مرور هنا...حتى الآن!\nاضغط على الزر أدناه لإضافة أول كلمة مرور لك';
+
+  @override
+  String get noFavouritePasswordsYet => 'لا توجد كلمات مرور مفضلة...حتى الآن!';
 
   @override
   String get search => 'بحث';

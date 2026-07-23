@@ -74,6 +74,9 @@ class AppLocalizationsEn extends AppLocalizations {
       'No secrets here...yet!\nTap the button below to add your first password';
 
   @override
+  String get noFavouritePasswordsYet => 'No favourite passwords...yet!';
+
+  @override
   String get search => 'Search';
 
   @override

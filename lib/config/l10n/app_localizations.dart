@@ -218,6 +218,12 @@ abstract class AppLocalizations {
   /// **'No secrets here...yet!\nTap the button below to add your first password'**
   String get noPasswordsYet;
 
+  /// No description provided for @noFavouritePasswordsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No favourite passwords...yet!'**
+  String get noFavouritePasswordsYet;
+
   /// No description provided for @search.
   ///
   /// In en, this message translates to:
