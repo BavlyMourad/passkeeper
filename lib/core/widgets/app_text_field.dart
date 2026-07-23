@@ -48,6 +48,7 @@ class AppTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       readOnly: readOnly,
+      canRequestFocus: !readOnly,
       maxLength: maxLength,
       inputFormatters: inputFormatters,
       validator: validator,
