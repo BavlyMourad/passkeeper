@@ -22,7 +22,7 @@ final class PasswordServiceProvider
         argument: null,
         retry: null,
         name: r'passwordServiceProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -49,4 +49,4 @@ final class PasswordServiceProvider
   }
 }
 
-String _$passwordServiceHash() => r'e14e8d5986cc93a43c47c95c782c3250f4014712';
+String _$passwordServiceHash() => r'72df28b53688cc11b7c828023bf8101ce441780c';

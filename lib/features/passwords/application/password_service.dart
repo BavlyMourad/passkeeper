@@ -5,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'password_service.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 PasswordService passwordService(Ref ref) {
   final passwordRepository = ref.watch(passwordRepositoryProvider);
 
@@ -20,7 +20,6 @@ class PasswordService {
 
   Future<void> toggleFavourite(String id) async {
     final password = _repository.getById(id);
-
     if (password == null) return;
 
     await _repository.save(
@@ -28,6 +27,6 @@ class PasswordService {
     );
 
     _ref.invalidate(passwordsProvider);
-    _ref.invalidate(passwordDetailsControllerProvider);
+    _ref.invalidate(passwordDetailsControllerProvider(id));
   }
 }
