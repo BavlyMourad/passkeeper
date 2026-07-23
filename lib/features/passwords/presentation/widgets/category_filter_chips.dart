@@ -14,50 +14,48 @@ class CategoryFilterChips extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    return Padding(
-      padding: EdgeInsetsDirectional.only(
-        start: SizeConfig.horizontalPadding(context.isMobile),
-      ),
-      child: SizedBox(
-        height: 40,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemCount: dummyCategories.length + 1, // +1 for "All" chip
-          separatorBuilder: (_, __) => const SizedBox(width: 12.0),
-          itemBuilder: (context, index) {
-            final isAll = index == 0;
-
-            final category = isAll ? null : dummyCategories[index - 1];
-
-            final selectedCategoryId = null;
-
-            final isSelected = isAll
-                ? selectedCategoryId == null
-                : selectedCategoryId == category!.id;
-
-            return FilterChip(
-              label: Text(
-                isAll ? AppLocalizations.of(context)!.all : category!.name,
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              selected: isSelected,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadiusGeometry.circular(50.0),
-              ),
-              onSelected: (_) {},
-              selectedColor: colorScheme.activeChipBackground,
-              backgroundColor: colorScheme.inactiveChipBackground,
-              labelStyle: isSelected
-                  ? AppStyles.bodySmallSemiBold(
-                      context,
-                    ).copyWith(color: colorScheme.activeChipText)
-                  : AppStyles.bodySmallMedium(
-                      context,
-                    ).copyWith(color: colorScheme.inactiveChipText),
-              showCheckmark: false,
-            );
-          },
+    return SizedBox(
+      height: 40,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        padding: EdgeInsetsDirectional.only(
+          start: SizeConfig.horizontalPadding(context.isMobile),
         ),
+        itemCount: dummyCategories.length + 1, // +1 for "All" chip
+        separatorBuilder: (_, __) => const SizedBox(width: 12.0),
+        itemBuilder: (context, index) {
+          final isAll = index == 0;
+
+          final category = isAll ? null : dummyCategories[index - 1];
+
+          final selectedCategoryId = null;
+
+          final isSelected = isAll
+              ? selectedCategoryId == null
+              : selectedCategoryId == category!.id;
+
+          return FilterChip(
+            label: Text(
+              isAll ? AppLocalizations.of(context)!.all : category!.name,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            selected: isSelected,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusGeometry.circular(50.0),
+            ),
+            onSelected: (_) {},
+            selectedColor: colorScheme.activeChipBackground,
+            backgroundColor: colorScheme.inactiveChipBackground,
+            labelStyle: isSelected
+                ? AppStyles.bodySmallSemiBold(
+                    context,
+                  ).copyWith(color: colorScheme.activeChipText)
+                : AppStyles.bodySmallMedium(
+                    context,
+                  ).copyWith(color: colorScheme.inactiveChipText),
+            showCheckmark: false,
+          );
+        },
       ),
     );
   }
