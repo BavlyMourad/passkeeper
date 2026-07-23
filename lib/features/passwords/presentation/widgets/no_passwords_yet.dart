@@ -5,7 +5,9 @@ import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
 
 class NoPasswordsYet extends StatelessWidget {
-  const NoPasswordsYet({super.key});
+  const NoPasswordsYet({super.key, this.isFavourites = false});
+
+  final bool isFavourites;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,9 @@ class NoPasswordsYet extends StatelessWidget {
         horizontal: SizeConfig.horizontalPadding(context.isMobile),
       ),
       child: Text(
-        AppLocalizations.of(context)!.noPasswordsYet,
+        isFavourites
+            ? AppLocalizations.of(context)!.noFavouritePasswordsYet
+            : AppLocalizations.of(context)!.noPasswordsYet,
         textAlign: TextAlign.center,
         style: AppStyles.titleLargeRegular(context),
       ),

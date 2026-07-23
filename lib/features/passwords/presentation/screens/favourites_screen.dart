@@ -72,7 +72,7 @@ class FavouritesScreen extends ConsumerWidget {
           children: [
             // No passwords yet
             if (favouritePasswords.isEmpty)
-              const NoPasswordsYet()
+              const NoPasswordsYet(isFavourites: true)
             else ...[
               const SizedBox(height: 50.0),
 
