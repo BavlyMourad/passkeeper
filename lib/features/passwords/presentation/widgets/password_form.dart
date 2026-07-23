@@ -43,7 +43,7 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   List<String> _selectedCategoryIds = [];
-  bool _isPasswordRevealed = false;
+  String? _plaintextPassword;
 
   @override
   void initState() {
@@ -83,12 +83,32 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
     final plaintext = await ref
         .read(passwordDetailsControllerProvider(widget.password!.id).notifier)
         .decryptPassword();
+
     if (!mounted) return;
+
     setState(() {
+      _plaintextPassword = plaintext;
       _passwordController.text = plaintext;
       _confirmPasswordController.text = plaintext;
-      _isPasswordRevealed = true;
     });
+  }
+
+  Future<String> _plaintext() async {
+    return _plaintextPassword ??= await ref
+        .read(passwordDetailsControllerProvider(widget.password!.id).notifier)
+        .decryptPassword();
+  }
+
+  Future<void> _reveal() async {
+    final plaintext = await _plaintext();
+    if (!mounted) return;
+    setState(() => _passwordController.text = plaintext);
+  }
+
+  void _hide() {
+    setState(
+      () => _passwordController.text = widget.password!.encryptedPassword,
+    );
   }
 
   void _toggleObscureText(String key) {
@@ -144,35 +164,16 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
                 ? IconPaths.invisible
                 : IconPaths.visible,
             onSuffixIconPressed: () async {
-              if (widget.isReadOnly &&
-                  widget.password != null &&
-                  !_isPasswordRevealed) {
-                final plaintext = await ref
-                    .read(
-                      passwordDetailsControllerProvider(
-                        widget.password!.id,
-                      ).notifier,
-                    )
-                    .decryptPassword();
-                if (!mounted) return;
-                setState(() {
-                  _passwordController.text = plaintext;
-                  _isPasswordRevealed = true;
-                });
+              if (widget.isReadOnly && widget.password != null) {
+                isPasswordObscured ? await _reveal() : _hide();
               }
               _toggleObscureText(ObscureTextKeys.password);
             },
             secondarySuffixIconPath: IconPaths.copy,
             onSecondarySuffixIconPressed: () async {
-              final textToCopy = widget.password == null || _isPasswordRevealed
+              final textToCopy = widget.password == null
                   ? _passwordController.text
-                  : await ref
-                        .read(
-                          passwordDetailsControllerProvider(
-                            widget.password!.id,
-                          ).notifier,
-                        )
-                        .decryptPassword();
+                  : await _plaintext();
               await Clipboard.setData(ClipboardData(text: textToCopy));
             },
             labelText: AppLocalizations.of(context)!.passwordHint,
@@ -198,7 +199,12 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
               onSuffixIconPressed: () =>
                   _toggleObscureText(ObscureTextKeys.confirmPassword),
               secondarySuffixIconPath: IconPaths.copy,
-              onSecondarySuffixIconPressed: () {},
+              onSecondarySuffixIconPressed: () async {
+                final textToCopy = widget.password == null
+                    ? _confirmPasswordController.text
+                    : await _plaintext();
+                await Clipboard.setData(ClipboardData(text: textToCopy));
+              },
               labelText: AppLocalizations.of(context)!.confirmPasswordHint,
             ),
 
@@ -277,6 +283,20 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
                                   updatedAt: DateTime.now(),
                                 );
                         widget.onSubmit(updated);
+                        if (widget.password != null) {
+                          setState(() {
+                            _passwordController.text =
+                                widget.password!.encryptedPassword;
+                            _confirmPasswordController.text =
+                                widget.password!.encryptedPassword;
+                            _plaintextPassword = null;
+                          });
+                          if (!ref.read(
+                            obscureTextProvider(ObscureTextKeys.password),
+                          )) {
+                            _toggleObscureText(ObscureTextKeys.password);
+                          }
+                        }
                       }
                     },
                     prefixIconPath: IconPaths.save,
