@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passkeeper/config/l10n/app_localizations.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/widgets/app_icon.dart';
-import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 
-class PasswordFormHeader extends ConsumerWidget {
-  const PasswordFormHeader({super.key, this.password});
+class PasswordFormHeader extends StatelessWidget {
+  const PasswordFormHeader({
+    super.key,
+    this.password,
+    required this.isFavourite,
+    required this.onToggleFavourite,
+  });
 
   final Password? password;
+  final bool isFavourite;
+  final VoidCallback onToggleFavourite;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       spacing: 28.0,
@@ -43,13 +48,9 @@ class PasswordFormHeader extends ConsumerWidget {
           ),
         ),
         IconButton(
-          onPressed: () {
-            if (password != null) {
-              ref.read(passwordServiceProvider).toggleFavourite(password!.id);
-            }
-          },
+          onPressed: onToggleFavourite,
           icon: AppIcon(
-            path: password?.isFavourite ?? false
+            path: isFavourite
                 ? IconPaths.favourite
                 : IconPaths.favouriteOutline,
             size: IconSize.medium,

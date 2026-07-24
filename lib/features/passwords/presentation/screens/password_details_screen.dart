@@ -11,6 +11,7 @@ import 'package:passkeeper/core/widgets/back_button.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 import 'package:passkeeper/core/widgets/loader.dart';
+import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/presentation/controllers/password_details_controller.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/edit_button.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/password_form.dart';
@@ -85,7 +86,15 @@ class _PasswordDetailsScreenState extends ConsumerState<PasswordDetailsScreen> {
                       children: [
                         const SizedBox(height: 50.0),
 
-                        PasswordFormHeader(password: password),
+                        PasswordFormHeader(
+                          password: password,
+                          isFavourite: password.isFavourite,
+                          onToggleFavourite: () {
+                            ref
+                                .read(passwordServiceProvider)
+                                .toggleFavourite(password.id);
+                          },
+                        ),
 
                         const SizedBox(height: 50.0),
 

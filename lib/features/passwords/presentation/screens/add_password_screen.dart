@@ -13,11 +13,21 @@ import 'package:passkeeper/features/passwords/presentation/controllers/add_passw
 import 'package:passkeeper/features/passwords/presentation/widgets/password_form_header.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/password_form.dart';
 
-class AddPasswordScreen extends ConsumerWidget {
+class AddPasswordScreen extends ConsumerStatefulWidget {
   const AddPasswordScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _AddPasswordScreenState();
+}
+
+class _AddPasswordScreenState extends ConsumerState<AddPasswordScreen> {
+  bool _isFavourite = false;
+
+  void _toggleFavourite() => setState(() => _isFavourite = !_isFavourite);
+
+  @override
+  Widget build(BuildContext context) {
     ref.listen(addPasswordControllerProvider, (previous, next) {
       // guard against the controller's default AsyncData(null) build state
       // only proceed if we just transitioned out of loading
@@ -74,16 +84,23 @@ class AddPasswordScreen extends ConsumerWidget {
                   children: [
                     const SizedBox(height: 50.0),
 
-                    const PasswordFormHeader(),
+                    PasswordFormHeader(
+                      isFavourite: _isFavourite,
+                      onToggleFavourite: _toggleFavourite,
+                    ),
 
                     const SizedBox(height: 50.0),
 
                     PasswordForm(
                       isLoading: isLoading,
                       onSubmit: (password) {
+                        final newPassword = password.copyWith(
+                          isFavourite: _isFavourite,
+                        );
+
                         ref
                             .read(addPasswordControllerProvider.notifier)
-                            .submit(password);
+                            .submit(newPassword);
                       },
                     ),
 
