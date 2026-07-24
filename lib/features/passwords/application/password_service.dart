@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+import 'package:passkeeper/features/passwords/application/password_crypto_service.dart';
 import 'package:passkeeper/features/passwords/data/password_repository.dart';
 import 'package:passkeeper/features/passwords/presentation/controllers/password_details_controller.dart';
 import 'package:passkeeper/features/passwords/presentation/providers/passwords_provider.dart';
@@ -28,5 +30,16 @@ class PasswordService {
 
     _ref.invalidate(passwordsProvider);
     _ref.invalidate(passwordDetailsControllerProvider(id));
+  }
+
+  Future<void> copy({required String ciphertext, required String iv}) async {
+    final cryptoService = _ref.read(passwordCryptoServiceProvider);
+
+    final plaintext = await cryptoService.decrypt(
+      ciphertext: ciphertext,
+      iv: iv,
+    );
+
+    await Clipboard.setData(ClipboardData(text: plaintext));
   }
 }

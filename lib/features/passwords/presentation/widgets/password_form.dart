@@ -3,11 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passkeeper/config/l10n/app_localizations.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
+import 'package:passkeeper/core/extensions/app_color_scheme.dart';
 import 'package:passkeeper/core/providers/obscure_text.dart';
+import 'package:passkeeper/core/utils/app_utils.dart';
 import 'package:passkeeper/core/validators/app_form_validators.dart';
 import 'package:passkeeper/core/widgets/app_text_field.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
 import 'package:passkeeper/core/widgets/loader.dart';
+import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 import 'package:passkeeper/features/passwords/presentation/controllers/password_details_controller.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/category_select_field.dart';
@@ -169,13 +172,25 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
               }
               _toggleObscureText(ObscureTextKeys.password);
             },
-            secondarySuffixIconPath: IconPaths.copy,
-            onSecondarySuffixIconPressed: () async {
-              final textToCopy = widget.password == null
-                  ? _passwordController.text
-                  : await _plaintext();
-              await Clipboard.setData(ClipboardData(text: textToCopy));
-            },
+            secondarySuffixIconPath: !widget.isReadOnly ? null : IconPaths.copy,
+            onSecondarySuffixIconPressed: !widget.isReadOnly
+                ? null
+                : () async {
+                    await ref
+                        .read(passwordServiceProvider)
+                        .copy(
+                          ciphertext: widget.password!.encryptedPassword,
+                          iv: widget.password!.iv,
+                        );
+
+                    if (context.mounted) {
+                      AppUtils.showSnackBar(
+                        context: context,
+                        message: AppLocalizations.of(context)!.copied,
+                        color: Theme.of(context).colorScheme.snackBar,
+                      );
+                    }
+                  },
             labelText: AppLocalizations.of(context)!.passwordHint,
           ),
 
@@ -198,13 +213,6 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
                   : IconPaths.visible,
               onSuffixIconPressed: () =>
                   _toggleObscureText(ObscureTextKeys.confirmPassword),
-              secondarySuffixIconPath: IconPaths.copy,
-              onSecondarySuffixIconPressed: () async {
-                final textToCopy = widget.password == null
-                    ? _confirmPasswordController.text
-                    : await _plaintext();
-                await Clipboard.setData(ClipboardData(text: textToCopy));
-              },
               labelText: AppLocalizations.of(context)!.confirmPasswordHint,
             ),
 
