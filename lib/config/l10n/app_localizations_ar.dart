@@ -140,4 +140,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get favourites => 'المفضلة';
+
+  @override
+  String get copied => 'تم النسخ';
 }

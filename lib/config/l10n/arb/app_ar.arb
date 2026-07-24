@@ -41,5 +41,6 @@
   "saveChanges": "حفظ التغييرات",
   "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى",
   "passwordSaved": "تم حفظ كلمة المرور",
-  "favourites": "المفضلة"
+  "favourites": "المفضلة",
+  "copied": "تم النسخ"
 }
