@@ -24,8 +24,8 @@ extension AppColorScheme on ColorScheme {
   Color get activeChipText =>
       _isDarkTheme ? AppColors.blueDark : AppColors.greyLightest;
 
-  Color get inactiveChipText =>
-      _isDarkTheme ? AppColors.greyLight : AppColors.blueMedium;
+  Color get chipText =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
 
   Color get navBarIndicator =>
       AppColors.blueLight.withValues(alpha: _isDarkTheme ? 0.5 : 0.3);
@@ -42,8 +42,11 @@ extension AppColorScheme on ColorScheme {
   Color get categorySelectField =>
       _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
 
-  Color get chipDelete =>
+  Color get chipDeleteIcon =>
       _isDarkTheme ? AppColors.blueDark : AppColors.greyLightest;
+
+  Color get chipAddIcon =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
 
   Color get snackBar =>
       _isDarkTheme ? AppColors.blueLight : AppColors.blueMedium;

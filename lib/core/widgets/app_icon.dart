@@ -18,6 +18,7 @@ class AppIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double iconSize = switch (size) {
+      IconSize.smallest => context.isMobile ? 16.0 : 20.0,
       IconSize.small => context.isMobile ? 20.0 : 24.0,
       IconSize.medium => context.isMobile ? 24.0 : 32.0,
       IconSize.large => context.isMobile ? 36.0 : 48.0,

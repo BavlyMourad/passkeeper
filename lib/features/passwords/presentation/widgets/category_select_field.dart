@@ -128,7 +128,7 @@ class CategorySelectField extends StatelessWidget {
                   deleteIcon: AppIcon(
                     path: IconPaths.cancel,
                     size: IconSize.small,
-                    color: Theme.of(context).colorScheme.chipDelete,
+                    color: Theme.of(context).colorScheme.chipDeleteIcon,
                   ),
                 );
               }).toList(),
