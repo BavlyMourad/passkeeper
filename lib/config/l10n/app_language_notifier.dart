@@ -33,6 +33,14 @@ class AppLanguageNotifier extends _$AppLanguageNotifier {
     await prefs.setString(SharedPrefsKeys.language, state.code);
   }
 
+  Future<void> setLanguage(AppLanguage language) async {
+    final prefs = ref.read(sharedPrefsProvider);
+
+    state = language;
+
+    await prefs.setString(SharedPrefsKeys.language, language.code);
+  }
+
   // Get the other language
   String get otherLanguage => state == AppLanguage.en
       ? AppLanguage.ar.code.toUpperCase()

@@ -355,6 +355,246 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Copied'**
   String get copied;
+
+  /// No description provided for @noMatchingPasswordsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching passwords found'**
+  String get noMatchingPasswordsFound;
+
+  /// No description provided for @passwordDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Password deleted'**
+  String get passwordDeleted;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @actionCanNotBeUndone.
+  ///
+  /// In en, this message translates to:
+  /// **'This action cannot be undone'**
+  String get actionCanNotBeUndone;
+
+  /// No description provided for @confirmDeletePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Password?'**
+  String get confirmDeletePassword;
+
+  /// No description provided for @confirmDeleteCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Category?'**
+  String get confirmDeleteCategory;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get preferences;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @darkMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark mode'**
+  String get darkMode;
+
+  /// No description provided for @security.
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get security;
+
+  /// No description provided for @biometricLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric login'**
+  String get biometricLogin;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get privacyPolicy;
+
+  /// No description provided for @appVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'App version'**
+  String get appVersion;
+
+  /// No description provided for @categorySaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Category saved'**
+  String get categorySaved;
+
+  /// No description provided for @categoryDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Category deleted'**
+  String get categoryDeleted;
+
+  /// No description provided for @passwords.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords'**
+  String get passwords;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @createNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Create New'**
+  String get createNew;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
+
+  /// No description provided for @categoryNameExists.
+  ///
+  /// In en, this message translates to:
+  /// **'This category name exists'**
+  String get categoryNameExists;
+
+  /// No description provided for @categoryName.
+  ///
+  /// In en, this message translates to:
+  /// **'Category name'**
+  String get categoryName;
+
+  /// No description provided for @empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty'**
+  String get empty;
+
+  /// No description provided for @privacyPolicyLastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated: August 2026'**
+  String get privacyPolicyLastUpdated;
+
+  /// No description provided for @privacyPolicyIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'PassKeeper is designed to keep your data on your device, not on our servers. This policy explains what that means in practice.'**
+  String get privacyPolicyIntro;
+
+  /// No description provided for @privacyPolicyWhatWeCollectTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What We Collect'**
+  String get privacyPolicyWhatWeCollectTitle;
+
+  /// No description provided for @privacyPolicyWhatWeCollectBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing. PassKeeper does not collect, transmit, or store any of your data on external servers. We have no analytics, no tracking, and no account system.'**
+  String get privacyPolicyWhatWeCollectBody;
+
+  /// No description provided for @privacyPolicyDataLocationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where Your Data Lives'**
+  String get privacyPolicyDataLocationTitle;
+
+  /// No description provided for @privacyPolicyDataLocationBody.
+  ///
+  /// In en, this message translates to:
+  /// **'All passwords, categories, and settings are stored locally on your device. Your passwords are encrypted using AES-256-GCM before they touch storage, with a unique encryption key derived from your PIN.'**
+  String get privacyPolicyDataLocationBody;
+
+  /// No description provided for @privacyPolicyBiometricTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric Authentication'**
+  String get privacyPolicyBiometricTitle;
+
+  /// No description provided for @privacyPolicyBiometricBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If you enable fingerprint or face unlock, this is handled entirely by your device\'s operating system. PassKeeper never receives or stores your biometric data.'**
+  String get privacyPolicyBiometricBody;
+
+  /// No description provided for @privacyPolicyBackupsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backups'**
+  String get privacyPolicyBackupsTitle;
+
+  /// No description provided for @privacyPolicyBackupsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'PassKeeper does not back up your data automatically. If your device backs up app data to a cloud service, that backup is subject to that service\'s own encryption and privacy terms, not ours.'**
+  String get privacyPolicyBackupsBody;
+
+  /// No description provided for @privacyPolicyDeletingDataTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting Your Data'**
+  String get privacyPolicyDeletingDataTitle;
+
+  /// No description provided for @privacyPolicyDeletingDataBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Uninstalling PassKeeper permanently deletes all locally stored data. Since we never had a copy, there is nothing further to delete on our end.'**
+  String get privacyPolicyDeletingDataBody;
+
+  /// No description provided for @privacyPolicyChangesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes to This Policy'**
+  String get privacyPolicyChangesTitle;
+
+  /// No description provided for @privacyPolicyChangesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If this policy changes, we will update the date above and, for any material change, notify you within the app.'**
+  String get privacyPolicyChangesBody;
+
+  /// No description provided for @privacyPolicyContactTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get privacyPolicyContactTitle;
+
+  /// No description provided for @privacyPolicyContactBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions about this policy can be sent to bavleymourad@gmail.com.'**
+  String get privacyPolicyContactBody;
 }
 
 class _AppLocalizationsDelegate
