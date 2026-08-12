@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:passkeeper/config/theme/app_colors.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/size_config.dart';
@@ -55,15 +54,7 @@ class CustomButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (prefixIconPath != null) ...[
-                    SvgPicture.asset(
-                      prefixIconPath!,
-                      width: 24.0,
-                      height: 24.0,
-                      colorFilter: const ColorFilter.mode(
-                        AppColors.greyLightest,
-                        BlendMode.srcIn,
-                      ),
-                    ),
+                    AppIcon(path: prefixIconPath!, size: IconSize.small),
                     const SizedBox(width: 12.0),
                   ],
                   Text(
