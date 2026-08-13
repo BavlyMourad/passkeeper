@@ -9,7 +9,9 @@ import 'package:passkeeper/core/widgets/app_icon.dart';
 import 'package:passkeeper/core/widgets/app_text_field.dart';
 
 class SearchAndFilterBar extends StatelessWidget {
-  const SearchAndFilterBar({super.key});
+  const SearchAndFilterBar({super.key, required this.controller});
+
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,11 @@ class SearchAndFilterBar extends StatelessWidget {
         children: [
           Expanded(
             child: AppTextField(
+              controller: controller,
               prefixIconPath: IconPaths.search,
               labelText: AppLocalizations.of(context)!.search,
             ),
           ),
-          // TODO: Replace with a filter button
           const AppIcon(
             path: IconPaths.sort,
             size: IconSize.medium,

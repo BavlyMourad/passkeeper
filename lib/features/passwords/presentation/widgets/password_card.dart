@@ -1,39 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:passkeeper/config/l10n/app_localizations.dart';
-import 'package:passkeeper/config/routes/app_routes.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
-import 'package:passkeeper/core/extensions/app_color_scheme.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
-import 'package:passkeeper/core/utils/app_utils.dart';
 import 'package:passkeeper/core/widgets/app_icon.dart';
-import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 
 class PasswordCard extends ConsumerWidget {
   const PasswordCard({
     super.key,
     required this.password,
-    this.source = PasswordDetailsSource.passwords,
+    required this.onTap,
+    required this.trailing,
   });
 
   final Password password;
-  final PasswordDetailsSource source;
+  final VoidCallback onTap;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
-      onTap: () {
-        switch (source) {
-          case PasswordDetailsSource.passwords:
-            context.push(AppRoutes.passwordDetailsPath(password.id));
-
-          case PasswordDetailsSource.favourites:
-            context.push(AppRoutes.favouritePasswordDetailsPath(password.id));
-        }
-      },
+      onTap: onTap,
       child: Card(
         margin: const EdgeInsets.all(0),
         child: Center(
@@ -49,6 +37,7 @@ class PasswordCard extends ConsumerWidget {
             ),
             title: Text(
               password.title,
+              overflow: TextOverflow.ellipsis,
               style: AppStyles.titleSmallSemiBold(context),
             ),
             subtitle: password.username != null
@@ -59,48 +48,7 @@ class PasswordCard extends ConsumerWidget {
                     ),
                   )
                 : null,
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    ref
-                        .read(passwordServiceProvider)
-                        .toggleFavourite(password.id);
-                  },
-                  icon: AppIcon(
-                    path: password.isFavourite
-                        ? IconPaths.favourite
-                        : IconPaths.favouriteOutline,
-                    size: IconSize.small,
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () async {
-                    await ref
-                        .read(passwordServiceProvider)
-                        .copy(
-                          ciphertext: password.encryptedPassword,
-                          iv: password.iv,
-                        );
-
-                    if (context.mounted) {
-                      AppUtils.showSnackBar(
-                        context: context,
-                        message: AppLocalizations.of(context)!.copied,
-                        color: Theme.of(context).colorScheme.snackBar,
-                      );
-                    }
-                  },
-                  icon: AppIcon(
-                    path: IconPaths.copy,
-                    size: IconSize.medium,
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
-                ),
-              ],
-            ),
+            trailing: trailing,
           ),
         ),
       ),

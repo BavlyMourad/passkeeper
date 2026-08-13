@@ -10,10 +10,11 @@ List<Password> filteredPasswords(
   String searchQuery,
   String? categoryId,
   bool? isFavourite,
+  bool isAscending,
 ) {
   final passwords = ref.watch(passwordsProvider);
 
-  return passwords.where((p) {
+  final filtered = passwords.where((p) {
     final matchesSearch = p.title.toLowerCase().contains(
       searchQuery.toLowerCase(),
     );
@@ -26,4 +27,11 @@ List<Password> filteredPasswords(
 
     return matchesSearch && matchesCategory && matchesFavourite;
   }).toList();
+
+  filtered.sort((a, b) {
+    final result = a.title.toLowerCase().compareTo(b.title.toLowerCase());
+    return isAscending ? result : -result;
+  });
+
+  return filtered;
 }

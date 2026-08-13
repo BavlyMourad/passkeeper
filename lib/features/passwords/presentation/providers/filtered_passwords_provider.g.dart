@@ -17,7 +17,7 @@ final class FilteredPasswordsProvider
     with $Provider<List<Password>> {
   FilteredPasswordsProvider._({
     required FilteredPasswordsFamily super.from,
-    required (String, String?, bool?) super.argument,
+    required (String, String?, bool?, bool) super.argument,
   }) : super(
          retry: null,
          name: r'filteredPasswordsProvider',
@@ -43,8 +43,14 @@ final class FilteredPasswordsProvider
 
   @override
   List<Password> create(Ref ref) {
-    final argument = this.argument as (String, String?, bool?);
-    return filteredPasswords(ref, argument.$1, argument.$2, argument.$3);
+    final argument = this.argument as (String, String?, bool?, bool);
+    return filteredPasswords(
+      ref,
+      argument.$1,
+      argument.$2,
+      argument.$3,
+      argument.$4,
+    );
   }
 
   /// {@macro riverpod.override_with_value}
@@ -66,10 +72,14 @@ final class FilteredPasswordsProvider
   }
 }
 
-String _$filteredPasswordsHash() => r'26d5eea040388a046efac6f9094c27167ded6b2c';
+String _$filteredPasswordsHash() => r'9377c93b3cc8b0d8c48fad578d78f41bce0ea017';
 
 final class FilteredPasswordsFamily extends $Family
-    with $FunctionalFamilyOverride<List<Password>, (String, String?, bool?)> {
+    with
+        $FunctionalFamilyOverride<
+          List<Password>,
+          (String, String?, bool?, bool)
+        > {
   FilteredPasswordsFamily._()
     : super(
         retry: null,
@@ -83,8 +93,9 @@ final class FilteredPasswordsFamily extends $Family
     String searchQuery,
     String? categoryId,
     bool? isFavourite,
+    bool isAscending,
   ) => FilteredPasswordsProvider._(
-    argument: (searchQuery, categoryId, isFavourite),
+    argument: (searchQuery, categoryId, isFavourite, isAscending),
     from: this,
   );
 
