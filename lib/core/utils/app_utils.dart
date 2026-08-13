@@ -55,4 +55,27 @@ class AppUtils {
       },
     );
   }
+
+  static Future<T?> showAppDialog<T>({
+    required BuildContext context,
+    required Widget child,
+    bool barrierDismissible = true,
+  }) {
+    return showDialog<T>(
+      context: context,
+      barrierDismissible: barrierDismissible,
+      builder: (context) {
+        return Dialog(
+          insetPadding: const EdgeInsets.symmetric(
+            horizontal: 24.0,
+            vertical: 24.0,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24.0),
+          ),
+          child: Padding(padding: const EdgeInsets.all(24.0), child: child),
+        );
+      },
+    );
+  }
 }

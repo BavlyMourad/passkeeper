@@ -24,6 +24,7 @@ class AppTextField extends StatelessWidget {
     this.validator,
     this.isOptional = false,
     this.readOnly = false,
+    this.textCapitalization = TextCapitalization.none,
   });
 
   final TextEditingController? controller;
@@ -40,11 +41,13 @@ class AppTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool isOptional;
   final bool readOnly;
+  final TextCapitalization textCapitalization;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      textCapitalization: textCapitalization,
       obscureText: obscureText,
       keyboardType: keyboardType,
       readOnly: readOnly,
@@ -54,6 +57,7 @@ class AppTextField extends StatelessWidget {
       validator: validator,
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.never,
+        errorMaxLines: 2,
         label: Text.rich(
           TextSpan(
             text: labelText,

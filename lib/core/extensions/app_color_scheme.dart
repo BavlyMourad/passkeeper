@@ -15,16 +15,19 @@ extension AppColorScheme on ColorScheme {
       ? AppColors.darkBackgroundGradientColors
       : AppColors.lightBackgroundGradientColors;
 
-  Color get activeChipBackground =>
+  Color get filterChipSelectedBackground =>
       _isDarkTheme ? AppColors.blueLight : AppColors.blueMedium;
 
-  Color get inactiveChipBackground =>
+  Color get filterChipUnselectedBackground =>
       _isDarkTheme ? AppColors.blueGreyDark : AppColors.greyLightest;
 
-  Color get activeChipText =>
+  Color get filterChipSelectedText =>
       _isDarkTheme ? AppColors.blueDark : AppColors.greyLightest;
 
-  Color get chipText =>
+  Color get filterChipUnselectedText =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
+
+  Color get actionChipText =>
       _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
 
   Color get navBarIndicator =>
@@ -50,4 +53,22 @@ extension AppColorScheme on ColorScheme {
 
   Color get snackBar =>
       _isDarkTheme ? AppColors.blueLight : AppColors.blueMedium;
+
+  Color get cancelButton =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
+
+  Color get addIconButton =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
+
+  Color get segmentedButtonSelectedBackground =>
+      _isDarkTheme ? AppColors.blueLight : AppColors.blueMedium;
+
+  Color get segmentedButtonUnselectedBackground =>
+      _isDarkTheme ? AppColors.blueGreyDark : AppColors.greyLightest;
+
+  Color get segmentedButtonSelectedText =>
+      _isDarkTheme ? AppColors.blueDark : AppColors.greyLightest;
+
+  Color get segmentedButtonUnselectedText =>
+      _isDarkTheme ? AppColors.greyLightest : AppColors.blueMedium;
 }

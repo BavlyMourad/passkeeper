@@ -54,4 +54,8 @@ class IconPaths {
   static const String sort = "assets/icons/sort.svg";
 
   static const String visible = "assets/icons/visible.svg";
+
+  static const String settings = "assets/icons/settings.svg";
+
+  static const String privacyPolicy = "assets/icons/privacy_policy.svg";
 }

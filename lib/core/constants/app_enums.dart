@@ -13,6 +13,3 @@ enum AppLanguage {
 
   Locale get locale => Locale(code); // Converts to Flutter Locale
 }
-
-// Which tab navigated to the password details screen so it gets highlighted
-enum PasswordDetailsSource { passwords, favourites }
