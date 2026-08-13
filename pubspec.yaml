@@ -3,7 +3,7 @@ description: "PassKeeper is a secure, easy-to-use password manager app designed 
 
 publish_to: 'none'
 
-version: 0.0.1+1
+version: 1.0.0+1
 
 environment:
   sdk: ^3.11.1
@@ -47,6 +47,7 @@ dependencies:
 
   # Utilities
   uuid: ^4.5.3
+  package_info_plus: ^10.2.1
   
 dev_dependencies:
   flutter_test:
@@ -59,6 +60,10 @@ dev_dependencies:
   freezed: ^3.2.5
   json_serializable: ^6.13.0
   build_runner: ^2.15.0
+
+  # App Setup Utils
+  flutter_launcher_icons: ^0.14.4
+  change_app_package_name: ^1.5.0
 
 flutter:
   uses-material-design: true
@@ -83,3 +88,8 @@ flutter:
         - asset: assets/fonts/Cairo/Cairo-Medium.ttf
         - asset: assets/fonts/Cairo/Cairo-SemiBold.ttf
         - asset: assets/fonts/Cairo/Cairo-Bold.ttf
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
