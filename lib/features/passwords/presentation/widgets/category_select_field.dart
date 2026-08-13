@@ -1,16 +1,17 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passkeeper/config/l10n/app_localizations.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
-import 'package:passkeeper/core/constants/dummy_data.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/extensions/app_color_scheme.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/widgets/app_icon.dart';
+import 'package:passkeeper/features/categories/presentation/providers/categories_provider.dart';
 
-class CategorySelectField extends StatelessWidget {
+class CategorySelectField extends ConsumerWidget {
   const CategorySelectField({
     super.key,
     required this.selectedCategoryIds,
@@ -25,7 +26,9 @@ class CategorySelectField extends StatelessWidget {
   final VoidCallback onAddNewCategory;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final categories = ref.watch(categoriesProvider);
+
     return Column(
       children: [
         PopupMenuButton<String>(
@@ -65,7 +68,7 @@ class CategorySelectField extends StatelessWidget {
             ),
           ),
           itemBuilder: (context) => [
-            ...dummyCategories.map(
+            ...categories.map(
               (category) => PopupMenuItem(
                 value: category.id,
                 child: Text(
@@ -111,7 +114,7 @@ class CategorySelectField extends StatelessWidget {
               spacing: 12.0,
               runSpacing: 8.0,
               children: selectedCategoryIds.map((id) {
-                final category = dummyCategories.firstWhere((c) => c.id == id);
+                final category = categories.firstWhere((c) => c.id == id);
 
                 return Chip(
                   shape: RoundedRectangleBorder(
@@ -119,11 +122,11 @@ class CategorySelectField extends StatelessWidget {
                   ),
                   label: Text(category.name),
                   labelStyle: AppStyles.bodySmallSemiBold(context).copyWith(
-                    color: Theme.of(context).colorScheme.activeChipText,
+                    color: Theme.of(context).colorScheme.filterChipSelectedText,
                   ),
                   backgroundColor: Theme.of(
                     context,
-                  ).colorScheme.activeChipBackground,
+                  ).colorScheme.filterChipSelectedBackground,
                   onDeleted: () => onCategoryRemoved(id),
                   deleteIcon: AppIcon(
                     path: IconPaths.cancel,

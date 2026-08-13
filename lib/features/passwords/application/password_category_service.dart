@@ -1,5 +1,6 @@
 import 'package:passkeeper/features/categories/data/category_repository.dart';
 import 'package:passkeeper/features/categories/domain/models/category.dart';
+import 'package:passkeeper/features/categories/presentation/providers/categories_provider.dart';
 import 'package:passkeeper/features/passwords/data/password_repository.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 import 'package:passkeeper/features/passwords/presentation/providers/passwords_provider.dart';
@@ -7,7 +8,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'password_category_service.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 PasswordCategoryService passwordCategoryService(Ref ref) {
   final passwordRepository = ref.watch(passwordRepositoryProvider);
   final categoryRepository = ref.watch(categoryRepositoryProvider);
@@ -44,39 +45,33 @@ class PasswordCategoryService {
         .toList();
   }
 
-  Future<void> addCategoryToPassword(
-    String passwordId,
-    String categoryId,
-  ) async {
-    final password = _passwordRepository.getById(passwordId);
+  Future<void> updateCategoryMembership(
+    String categoryId, {
+    List<String> toAdd = const [],
+    List<String> toRemove = const [],
+  }) async {
+    for (final passwordId in toAdd) {
+      final password = _passwordRepository.getById(passwordId);
+      if (password == null) continue;
+      if (password.categoryIds.contains(categoryId)) continue;
 
-    if (password == null) return;
-    if (password.categoryIds.contains(categoryId)) return;
+      await _passwordRepository.save(
+        password.copyWith(categoryIds: [...password.categoryIds, categoryId]),
+      );
+    }
 
-    final updatedPassword = password.copyWith(
-      categoryIds: [...password.categoryIds, categoryId],
-    );
+    for (final passwordId in toRemove) {
+      final password = _passwordRepository.getById(passwordId);
+      if (password == null) continue;
 
-    await _passwordRepository.save(updatedPassword);
-
-    _ref.invalidate(passwordsProvider);
-  }
-
-  Future<void> removeCategoryFromPassword(
-    String passwordId,
-    String categoryId,
-  ) async {
-    final password = _passwordRepository.getById(passwordId);
-
-    if (password == null) return;
-
-    final updatedPassword = password.copyWith(
-      categoryIds: password.categoryIds
-          .where((id) => id != categoryId)
-          .toList(),
-    );
-
-    await _passwordRepository.save(updatedPassword);
+      await _passwordRepository.save(
+        password.copyWith(
+          categoryIds: password.categoryIds
+              .where((id) => id != categoryId)
+              .toList(),
+        ),
+      );
+    }
 
     _ref.invalidate(passwordsProvider);
   }
@@ -97,5 +92,6 @@ class PasswordCategoryService {
     }
 
     _ref.invalidate(passwordsProvider);
+    _ref.invalidate(categoriesProvider);
   }
 }

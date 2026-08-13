@@ -26,7 +26,7 @@ final class PasswordCategoryServiceProvider
         argument: null,
         retry: null,
         name: r'passwordCategoryServiceProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -55,4 +55,4 @@ final class PasswordCategoryServiceProvider
 }
 
 String _$passwordCategoryServiceHash() =>
-    r'19b87b8e7566fd369fa11ac592a5bee84bf17a44';
+    r'bd5848898f5c98bdcc7822d049a0a80dd002f1c9';
