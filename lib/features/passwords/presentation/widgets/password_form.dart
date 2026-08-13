@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passkeeper/config/l10n/app_localizations.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
@@ -10,6 +9,7 @@ import 'package:passkeeper/core/validators/app_form_validators.dart';
 import 'package:passkeeper/core/widgets/app_text_field.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
 import 'package:passkeeper/core/widgets/loader.dart';
+import 'package:passkeeper/features/categories/presentation/widgets/create_category_sheet.dart';
 import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 import 'package:passkeeper/features/passwords/presentation/controllers/password_details_controller.dart';
@@ -194,10 +194,10 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
             labelText: AppLocalizations.of(context)!.passwordHint,
           ),
 
-          const SizedBox(height: 24.0),
-
           // Confirm Password Field
           if (!widget.isReadOnly) ...[
+            const SizedBox(height: 24.0),
+
             AppTextField(
               controller: _confirmPasswordController,
               readOnly: widget.isReadOnly,
@@ -219,11 +219,13 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
             const SizedBox(height: 24.0),
           ],
 
-          if (widget.isReadOnly) ...[
-            // Category View Field
-            CategoryViewField(categoryIds: widget.password!.categoryIds),
-
+          // Category View Field
+          if (widget.isReadOnly &&
+              widget.password != null &&
+              widget.password!.categoryIds.isNotEmpty) ...[
             const SizedBox(height: 24.0),
+
+            CategoryViewField(categoryIds: widget.password!.categoryIds),
           ],
 
           if (!widget.isReadOnly) ...[
@@ -241,20 +243,27 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
                   _selectedCategoryIds.remove(id);
                 });
               },
-              onAddNewCategory: () {},
+              onAddNewCategory: () {
+                AppUtils.showBottomModalSheet(
+                  context: context,
+                  child: const CreateCategorySheet(),
+                );
+              },
             ),
-
-            const SizedBox(height: 24.0),
           ],
 
           // Website Field
-          AppTextField(
-            controller: _websiteController,
-            readOnly: widget.isReadOnly,
-            prefixIconPath: IconPaths.link,
-            isOptional: true,
-            labelText: AppLocalizations.of(context)!.websiteHint,
-          ),
+          if (!widget.isReadOnly || widget.password!.url != null) ...[
+            const SizedBox(height: 24.0),
+
+            AppTextField(
+              controller: _websiteController,
+              readOnly: widget.isReadOnly,
+              prefixIconPath: IconPaths.link,
+              isOptional: true,
+              labelText: AppLocalizations.of(context)!.websiteHint,
+            ),
+          ],
 
           if (!widget.isReadOnly) ...[
             const SizedBox(height: 32.0),

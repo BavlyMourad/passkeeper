@@ -7,12 +7,14 @@ import 'package:passkeeper/core/constants/size_config.dart';
 import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/extensions/app_color_scheme.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
+import 'package:passkeeper/core/utils/app_utils.dart';
 import 'package:passkeeper/core/widgets/back_button.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 import 'package:passkeeper/core/widgets/loader.dart';
 import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/presentation/controllers/password_details_controller.dart';
+import 'package:passkeeper/core/widgets/app_dialog.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/edit_button.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/password_form.dart';
 import 'package:passkeeper/features/passwords/presentation/widgets/password_form_header.dart';
@@ -33,6 +35,24 @@ class _PasswordDetailsScreenState extends ConsumerState<PasswordDetailsScreen> {
   void _toggleEditMode() => setState(() {
     _isEditingMode = !_isEditingMode;
   });
+
+  void _toggleFavourite(String passwordId) {
+    ref.read(passwordServiceProvider).toggleFavourite(passwordId);
+  }
+
+  void _deletePassword() {
+    ref
+        .read(passwordDetailsControllerProvider(widget.id).notifier)
+        .deletePassword();
+
+    AppUtils.showSnackBar(
+      context: context,
+      message: AppLocalizations.of(context)!.passwordDeleted,
+      color: Theme.of(context).colorScheme.snackBar,
+    );
+
+    context.pop();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,11 +109,8 @@ class _PasswordDetailsScreenState extends ConsumerState<PasswordDetailsScreen> {
                         PasswordFormHeader(
                           password: password,
                           isFavourite: password.isFavourite,
-                          onToggleFavourite: () {
-                            ref
-                                .read(passwordServiceProvider)
-                                .toggleFavourite(password.id);
-                          },
+                          onToggleFavourite: () =>
+                              _toggleFavourite(password.id),
                         ),
 
                         const SizedBox(height: 50.0),
@@ -126,15 +143,25 @@ class _PasswordDetailsScreenState extends ConsumerState<PasswordDetailsScreen> {
                               Expanded(
                                 child: CustomButton(
                                   onPressed: () {
-                                    ref
-                                        .read(
-                                          passwordDetailsControllerProvider(
-                                            widget.id,
-                                          ).notifier,
-                                        )
-                                        .deletePassword();
-
-                                    context.pop();
+                                    AppUtils.showAppDialog(
+                                      context: context,
+                                      child: SizedBox(
+                                        width:
+                                            SizeConfig.tabletConstrainedWidth(
+                                              context.screenWidth,
+                                              context.isMobile,
+                                            ),
+                                        child: AppDialog(
+                                          title: AppLocalizations.of(
+                                            context,
+                                          )!.confirmDeletePassword,
+                                          subtitle: AppLocalizations.of(
+                                            context,
+                                          )!.actionCanNotBeUndone,
+                                          onTap: _deletePassword,
+                                        ),
+                                      ),
+                                    );
                                   },
                                   title: AppLocalizations.of(context)!.delete,
                                   prefixIconPath: IconPaths.delete,

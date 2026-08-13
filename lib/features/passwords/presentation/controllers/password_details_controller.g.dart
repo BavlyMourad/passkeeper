@@ -52,7 +52,7 @@ final class PasswordDetailsControllerProvider
 }
 
 String _$passwordDetailsControllerHash() =>
-    r'b7fd5e39e5b72ad1f74e3b650814a4e59f820816';
+    r'68cdc095e0f1489a004e1078c65a1281d91d259b';
 
 final class PasswordDetailsControllerFamily extends $Family
     with

@@ -1,4 +1,6 @@
 import 'package:passkeeper/core/errors/app_exception.dart';
+import 'package:passkeeper/features/categories/application/category_service.dart';
+import 'package:passkeeper/features/categories/presentation/providers/categories_provider.dart';
 import 'package:passkeeper/features/passwords/application/password_crypto_service.dart';
 import 'package:passkeeper/features/passwords/data/password_repository.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
@@ -67,6 +69,18 @@ class PasswordDetailsController extends _$PasswordDetailsController {
       ref.invalidate(passwordsProvider);
 
       return current;
+    });
+  }
+
+  Future<void> createCategory(String name) async {
+    final service = ref.read(categoryServiceProvider);
+
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(() async {
+      await service.createCategory(name);
+      ref.invalidate(categoriesProvider);
+
+      return state.requireValue;
     });
   }
 }
