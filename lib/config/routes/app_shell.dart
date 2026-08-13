@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:passkeeper/config/l10n/app_localizations.dart';
 import 'package:passkeeper/config/routes/app_routes.dart';
 import 'package:passkeeper/config/theme/app_colors.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
@@ -20,6 +21,7 @@ class AppShell extends ConsumerWidget {
     if (location.startsWith(AppRoutes.passwords)) return 0;
     if (location.startsWith(AppRoutes.favourites)) return 1;
     if (location.startsWith(AppRoutes.categories)) return 2;
+    if (location.startsWith(AppRoutes.settings)) return 3;
     return 0;
   }
 
@@ -63,6 +65,7 @@ class AppShell extends ConsumerWidget {
                 AppRoutes.passwords,
                 AppRoutes.favourites,
                 AppRoutes.categories,
+                AppRoutes.settings,
               ];
 
               final route = routes[index];
@@ -70,9 +73,8 @@ class AppShell extends ConsumerWidget {
               context.go(route);
             },
             destinations: [
-              // TODO: Replace hardcoded strings
               NavigationDestination(
-                label: 'Passwords',
+                label: AppLocalizations.of(context)!.passwords,
                 icon: AppIcon(
                   path: IconPaths.home,
                   size: IconSize.medium,
@@ -80,7 +82,7 @@ class AppShell extends ConsumerWidget {
                 ),
               ),
               NavigationDestination(
-                label: 'Favourites',
+                label: AppLocalizations.of(context)!.favourites,
                 icon: AppIcon(
                   path: IconPaths.favouriteOutline,
                   size: IconSize.medium,
@@ -88,9 +90,17 @@ class AppShell extends ConsumerWidget {
                 ),
               ),
               NavigationDestination(
-                label: 'Categories',
+                label: AppLocalizations.of(context)!.categories,
                 icon: AppIcon(
                   path: IconPaths.categories1,
+                  size: IconSize.medium,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+              ),
+              NavigationDestination(
+                label: AppLocalizations.of(context)!.settings,
+                icon: AppIcon(
+                  path: IconPaths.settings,
                   size: IconSize.medium,
                   color: Theme.of(context).colorScheme.onSecondary,
                 ),
