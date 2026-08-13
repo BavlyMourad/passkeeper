@@ -5,8 +5,8 @@ import 'package:passkeeper/core/widgets/app_icon.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
 
-class LanguageSelectionButton extends ConsumerWidget {
-  const LanguageSelectionButton({super.key});
+class LanguageToggleButton extends ConsumerWidget {
+  const LanguageToggleButton({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

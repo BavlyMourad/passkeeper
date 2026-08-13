@@ -8,7 +8,7 @@ import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/utils/app_utils.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
-import 'package:passkeeper/core/widgets/language_selection_button.dart';
+import 'package:passkeeper/core/widgets/language_toggle_button.dart';
 import 'package:passkeeper/core/widgets/theme_toggle_button.dart';
 import 'package:passkeeper/core/widgets/welcome_header.dart';
 import 'package:passkeeper/features/auth/presentation/widgets/create_pin_sheet.dart';
@@ -32,7 +32,7 @@ class LoginScreen extends ConsumerWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         actionsPadding: const EdgeInsets.symmetric(horizontal: 12.0),
-        actions: const [LanguageSelectionButton(), ThemeToggleButton()],
+        actions: const [LanguageToggleButton(), ThemeToggleButton()],
       ),
       body: GradientBackground(
         begin: context.isDarkTheme
