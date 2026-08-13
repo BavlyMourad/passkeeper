@@ -9,13 +9,13 @@ part of 'category.dart';
 _Category _$CategoryFromJson(Map<String, dynamic> json) => _Category(
   id: json['id'] as String,
   name: json['name'] as String,
-  createdAt: json['createdAt'] as String,
-  updatedAt: json['updatedAt'] as String,
+  createdAt: DateTime.parse(json['createdAt'] as String),
+  updatedAt: DateTime.parse(json['updatedAt'] as String),
 );
 
 Map<String, dynamic> _$CategoryToJson(_Category instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
-  'createdAt': instance.createdAt,
-  'updatedAt': instance.updatedAt,
+  'createdAt': instance.createdAt.toIso8601String(),
+  'updatedAt': instance.updatedAt.toIso8601String(),
 };

@@ -1,6 +1,8 @@
+import 'package:passkeeper/core/errors/app_exception.dart';
 import 'package:passkeeper/features/categories/data/category_repository.dart';
 import 'package:passkeeper/features/categories/domain/models/category.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 part 'category_service.g.dart';
 
@@ -16,7 +18,32 @@ class CategoryService {
 
   final CategoryRepository _repository;
 
-  List<Category> getAllCategories() => _repository.getAll();
+  Future<Category> createCategory(String name) async {
+    final trimmedName = name.trim();
 
-  Future<void> createCategory(Category category) => _repository.save(category);
+    if (trimmedName.isEmpty) {
+      throw EmptyCategoryNameException();
+    }
+
+    final nameExists = _repository.getAll().any(
+      (category) => category.name.toLowerCase() == trimmedName.toLowerCase(),
+    );
+
+    if (nameExists) {
+      throw DuplicateCategoryNameException();
+    }
+
+    final now = DateTime.now();
+
+    final category = Category(
+      id: const Uuid().v4(),
+      name: trimmedName,
+      createdAt: now,
+      updatedAt: now,
+    );
+
+    await _repository.save(category);
+
+    return category;
+  }
 }

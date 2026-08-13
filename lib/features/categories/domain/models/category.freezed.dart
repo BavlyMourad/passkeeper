@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Category {
 
- String get id; String get name; String get createdAt; String get updatedAt;
+ String get id; String get name; DateTime get createdAt; DateTime get updatedAt;
 /// Create a copy of Category
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CategoryCopyWith<$Res>  {
   factory $CategoryCopyWith(Category value, $Res Function(Category) _then) = _$CategoryCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String createdAt, String updatedAt
+ String id, String name, DateTime createdAt, DateTime updatedAt
 });
 
 
@@ -70,8 +70,8 @@ class _$CategoryCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as String,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
-as String,
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
   ));
 }
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String createdAt,  String updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  DateTime createdAt,  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Category() when $default != null:
 return $default(_that.id,_that.name,_that.createdAt,_that.updatedAt);case _:
@@ -177,7 +177,7 @@ return $default(_that.id,_that.name,_that.createdAt,_that.updatedAt);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String createdAt,  String updatedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  DateTime createdAt,  DateTime updatedAt)  $default,) {final _that = this;
 switch (_that) {
 case _Category():
 return $default(_that.id,_that.name,_that.createdAt,_that.updatedAt);case _:
@@ -197,7 +197,7 @@ return $default(_that.id,_that.name,_that.createdAt,_that.updatedAt);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String createdAt,  String updatedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  DateTime createdAt,  DateTime updatedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _Category() when $default != null:
 return $default(_that.id,_that.name,_that.createdAt,_that.updatedAt);case _:
@@ -217,8 +217,8 @@ class _Category implements Category {
 
 @override final  String id;
 @override final  String name;
-@override final  String createdAt;
-@override final  String updatedAt;
+@override final  DateTime createdAt;
+@override final  DateTime updatedAt;
 
 /// Create a copy of Category
 /// with the given fields replaced by the non-null parameter values.
@@ -253,7 +253,7 @@ abstract mixin class _$CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res>
   factory _$CategoryCopyWith(_Category value, $Res Function(_Category) _then) = __$CategoryCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String createdAt, String updatedAt
+ String id, String name, DateTime createdAt, DateTime updatedAt
 });
 
 
@@ -275,8 +275,8 @@ class __$CategoryCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as String,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
-as String,
+as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
   ));
 }
 
