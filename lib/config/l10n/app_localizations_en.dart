@@ -209,6 +209,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get categoryNameExists => 'This category name exists';
 
   @override
+  String get categoryNameEmpty => 'Please enter a category name';
+
+  @override
   String get categoryName => 'Category name';
 
   @override

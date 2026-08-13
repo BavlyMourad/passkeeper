@@ -65,9 +65,9 @@
   "createNew": "Create New",
   "create": "Create",
   "categoryNameExists": "This category name exists",
+  "categoryNameEmpty": "Please enter a category name",
   "categoryName": "Category name",
   "empty": "Empty",
-  
   "privacyPolicyLastUpdated": "Last updated: August 2026",
   "privacyPolicyIntro": "PassKeeper is designed to keep your data on your device, not on our servers. This policy explains what that means in practice.",
   "privacyPolicyWhatWeCollectTitle": "What We Collect",

@@ -211,6 +211,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get categoryNameExists => 'اسم هذه الفئة موجود بالفعل';
 
   @override
+  String get categoryNameEmpty => 'يرجى إدخال اسم الفئة';
+
+  @override
   String get categoryName => 'اسم الفئة';
 
   @override

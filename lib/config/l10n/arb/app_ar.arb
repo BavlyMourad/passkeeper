@@ -65,9 +65,9 @@
   "createNew": "إنشاء جديد",
   "create": "إنشاء",
   "categoryNameExists": "اسم هذه الفئة موجود بالفعل",
+  "categoryNameEmpty": "يرجى إدخال اسم الفئة",
   "categoryName": "اسم الفئة",
   "empty": "فارغ",
-  
   "privacyPolicyLastUpdated": "آخر تحديث: أغسطس 2026",
   "privacyPolicyIntro": "تم تصميم PassKeeper للحفاظ على بياناتك على جهازك فقط، وليس على خوادمنا. توضح هذه السياسة ما يعنيه ذلك عملياً.",
   "privacyPolicyWhatWeCollectTitle": "ما الذي نجمعه",

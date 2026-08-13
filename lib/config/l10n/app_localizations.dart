@@ -488,6 +488,12 @@ abstract class AppLocalizations {
   /// **'This category name exists'**
   String get categoryNameExists;
 
+  /// No description provided for @categoryNameEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a category name'**
+  String get categoryNameEmpty;
+
   /// No description provided for @categoryName.
   ///
   /// In en, this message translates to:
