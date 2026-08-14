@@ -1,4 +1,5 @@
 import 'package:passkeeper/core/errors/app_exception.dart';
+import 'package:passkeeper/core/utils/brand_icon_matcher.dart';
 import 'package:passkeeper/features/categories/application/category_service.dart';
 import 'package:passkeeper/features/categories/presentation/providers/categories_provider.dart';
 import 'package:passkeeper/features/passwords/application/password_crypto_service.dart';
@@ -44,9 +45,15 @@ class PasswordDetailsController extends _$PasswordDetailsController {
         editedPassword.encryptedPassword,
       );
 
+      final matchedLogo = BrandIconMatcher.match(
+        title: editedPassword.title,
+        website: editedPassword.url,
+      );
+
       final updatedPassword = editedPassword.copyWith(
         encryptedPassword: encrypted.ciphertext,
         iv: encrypted.iv,
+        logo: matchedLogo,
         updatedAt: DateTime.now(),
       );
 

@@ -42,7 +42,7 @@ final class AddPasswordControllerProvider
 }
 
 String _$addPasswordControllerHash() =>
-    r'594766a7d8110bc2549431f89fdfea7c9b7852e7';
+    r'307704a3992f42bd0f87bdf0b4eb7bd502b214d7';
 
 abstract class _$AddPasswordController extends $Notifier<AsyncValue<void>> {
   AsyncValue<void> build();

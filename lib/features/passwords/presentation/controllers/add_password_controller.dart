@@ -1,3 +1,4 @@
+import 'package:passkeeper/core/utils/brand_icon_matcher.dart';
 import 'package:passkeeper/features/passwords/application/password_crypto_service.dart';
 import 'package:passkeeper/features/passwords/data/password_repository.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
@@ -22,10 +23,16 @@ class AddPasswordController extends _$AddPasswordController {
         draftPassword.encryptedPassword,
       );
 
+      final matchedLogo = BrandIconMatcher.match(
+        title: draftPassword.title,
+        website: draftPassword.url,
+      );
+
       final newPassword = draftPassword.copyWith(
         id: const Uuid().v4(),
         encryptedPassword: encrypted.ciphertext,
         iv: encrypted.iv,
+        logo: matchedLogo,
       );
 
       await passwordRepository.save(newPassword);
