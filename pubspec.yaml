@@ -3,7 +3,7 @@ description: "PassKeeper is a secure, easy-to-use password manager app designed 
 
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ^3.11.1
@@ -72,6 +72,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/brand_icons/
 
   fonts:
     - family: Montserrat
