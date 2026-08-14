@@ -4,6 +4,7 @@ import 'package:passkeeper/core/constants/app_enums.dart';
 import 'package:passkeeper/core/constants/icon_paths.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/widgets/app_icon.dart';
+import 'package:passkeeper/features/passwords/presentation/widgets/password_icon.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 
 class PasswordFormHeader extends StatelessWidget {
@@ -29,11 +30,7 @@ class PasswordFormHeader extends StatelessWidget {
             spacing: 8.0,
             children: [
               if (password != null)
-                AppIcon(
-                  path: password!.logo ?? IconPaths.password,
-                  size: IconSize.large,
-                  color: Theme.of(context).colorScheme.onSecondary,
-                ),
+                PasswordIcon(logoPath: password!.logo, size: IconSize.large),
               Expanded(
                 child: Text(
                   password == null

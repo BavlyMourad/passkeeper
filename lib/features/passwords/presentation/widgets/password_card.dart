@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:passkeeper/core/constants/app_enums.dart';
-import 'package:passkeeper/core/constants/icon_paths.dart';
+import 'package:passkeeper/core/extensions/app_build_context.dart';
 import 'package:passkeeper/core/styles/app_styles.dart';
-import 'package:passkeeper/core/widgets/app_icon.dart';
+import 'package:passkeeper/features/passwords/presentation/widgets/password_icon.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 
 class PasswordCard extends ConsumerWidget {
@@ -30,10 +30,9 @@ class PasswordCard extends ConsumerWidget {
               horizontal: 12.0,
               vertical: 0.0,
             ),
-            leading: AppIcon(
-              path: password.logo ?? IconPaths.password,
-              size: IconSize.medium,
-              color: Theme.of(context).colorScheme.onSecondary,
+            leading: PasswordIcon(
+              logoPath: password.logo,
+              size: context.isMobile ? IconSize.large : IconSize.medium,
             ),
             title: Text(
               password.title,
