@@ -47,7 +47,7 @@ class AppShell extends ConsumerWidget {
             ],
           ),
           child: NavigationBar(
-            height: 70.0,
+            height: context.isMobile ? 70.0 : 100.0,
             selectedIndex: selectedIndex,
             indicatorColor: Theme.of(context).colorScheme.navBarIndicator,
             labelTextStyle: WidgetStateProperty.resolveWith((states) {
