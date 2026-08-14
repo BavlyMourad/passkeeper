@@ -139,6 +139,7 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
               validator: (value) => AppFormValidators.required(context, value),
               prefixIconPath: IconPaths.service,
               labelText: AppLocalizations.of(context)!.titleHint,
+              textCapitalization: TextCapitalization.sentences,
             ),
 
             const SizedBox(height: 24.0),
