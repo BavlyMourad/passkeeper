@@ -42,6 +42,7 @@ class PasswordCard extends ConsumerWidget {
             subtitle: password.username != null
                 ? Text(
                     password.username!,
+                    overflow: TextOverflow.ellipsis,
                     style: AppStyles.captionRegular(context).copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
