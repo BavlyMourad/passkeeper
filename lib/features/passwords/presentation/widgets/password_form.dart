@@ -145,17 +145,19 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
             const SizedBox(height: 24.0),
           ],
 
-          // Email/Username Field
-          AppTextField(
-            controller: _usernameController,
-            readOnly: widget.isReadOnly,
-            isOptional: true,
-            keyboardType: TextInputType.emailAddress,
-            prefixIconPath: IconPaths.username,
-            labelText: AppLocalizations.of(context)!.usernameHint,
-          ),
+          if (!widget.isReadOnly || widget.password!.username != null) ...[
+            // Email/Username Field
+            AppTextField(
+              controller: _usernameController,
+              readOnly: widget.isReadOnly,
+              isOptional: true,
+              keyboardType: TextInputType.emailAddress,
+              prefixIconPath: IconPaths.username,
+              labelText: AppLocalizations.of(context)!.usernameHint,
+            ),
 
-          const SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
+          ],
 
           // Password Field
           AppTextField(
