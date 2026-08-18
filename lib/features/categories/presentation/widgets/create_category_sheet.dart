@@ -10,10 +10,13 @@ import 'package:passkeeper/core/styles/app_styles.dart';
 import 'package:passkeeper/core/widgets/app_text_field.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
 import 'package:passkeeper/core/widgets/loader.dart';
+import 'package:passkeeper/features/categories/domain/models/category.dart';
 import 'package:passkeeper/features/categories/presentation/controllers/categories_controller.dart';
 
 class CreateCategorySheet extends ConsumerStatefulWidget {
-  const CreateCategorySheet({super.key});
+  const CreateCategorySheet({super.key, this.onCategoryCreated});
+
+  final ValueChanged<String>? onCategoryCreated;
 
   @override
   ConsumerState<CreateCategorySheet> createState() =>
@@ -38,7 +41,7 @@ class _CreateCategorySheetState extends ConsumerState<CreateCategorySheet> {
 
   @override
   Widget build(BuildContext context) {
-    ref.listen<AsyncValue<void>>(categoriesControllerProvider, (
+    ref.listen<AsyncValue<Category?>>(categoriesControllerProvider, (
       previous,
       next,
     ) {
@@ -57,10 +60,13 @@ class _CreateCategorySheetState extends ConsumerState<CreateCategorySheet> {
             };
           });
         },
-        data: (_) {
+        data: (category) {
           if (previous?.isLoading == true) {
             _categoryNameController.clear();
             setState(() => _error = '');
+            if (category != null) {
+              widget.onCategoryCreated?.call(category.id);
+            }
             context.pop();
           }
         },

@@ -31,11 +31,10 @@ class PasswordForm extends ConsumerStatefulWidget {
   final void Function(Password password) onSubmit;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _PasswordDetailsFormState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _PasswordFormState();
 }
 
-class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
+class _PasswordFormState extends ConsumerState<PasswordForm> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -249,7 +248,15 @@ class _PasswordDetailsFormState extends ConsumerState<PasswordForm> {
               onAddNewCategory: () {
                 AppUtils.showBottomModalSheet(
                   context: context,
-                  child: const CreateCategorySheet(),
+                  child: CreateCategorySheet(
+                    onCategoryCreated: (id) {
+                      setState(() {
+                        if (!_selectedCategoryIds.contains(id)) {
+                          _selectedCategoryIds.add(id);
+                        }
+                      });
+                    },
+                  ),
                 );
               },
             ),
