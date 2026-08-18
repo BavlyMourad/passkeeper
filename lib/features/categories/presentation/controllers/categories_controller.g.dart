@@ -13,7 +13,7 @@ part of 'categories_controller.dart';
 final categoriesControllerProvider = CategoriesControllerProvider._();
 
 final class CategoriesControllerProvider
-    extends $AsyncNotifierProvider<CategoriesController, void> {
+    extends $AsyncNotifierProvider<CategoriesController, Category?> {
   CategoriesControllerProvider._()
     : super(
         from: null,
@@ -34,19 +34,19 @@ final class CategoriesControllerProvider
 }
 
 String _$categoriesControllerHash() =>
-    r'abf209c746d2efc704b773e59bb06f54a93ace67';
+    r'ec108768933fe02e88c4951c277d659955a08828';
 
-abstract class _$CategoriesController extends $AsyncNotifier<void> {
-  FutureOr<void> build();
+abstract class _$CategoriesController extends $AsyncNotifier<Category?> {
+  FutureOr<Category?> build();
   @$mustCallSuper
   @override
   void runBuild() {
-    final ref = this.ref as $Ref<AsyncValue<void>, void>;
+    final ref = this.ref as $Ref<AsyncValue<Category?>, Category?>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AsyncValue<void>, void>,
-              AsyncValue<void>,
+              AnyNotifier<AsyncValue<Category?>, Category?>,
+              AsyncValue<Category?>,
               Object?,
               Object?
             >;
