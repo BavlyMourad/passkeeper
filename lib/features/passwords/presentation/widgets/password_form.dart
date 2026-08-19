@@ -9,7 +9,7 @@ import 'package:passkeeper/core/validators/app_form_validators.dart';
 import 'package:passkeeper/core/widgets/app_text_field.dart';
 import 'package:passkeeper/core/widgets/custom_button.dart';
 import 'package:passkeeper/core/widgets/loader.dart';
-import 'package:passkeeper/features/categories/presentation/widgets/create_category_sheet.dart';
+import 'package:passkeeper/features/categories/presentation/widgets/category_form_sheet.dart';
 import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 import 'package:passkeeper/features/passwords/presentation/controllers/password_details_controller.dart';
@@ -248,7 +248,7 @@ class _PasswordFormState extends ConsumerState<PasswordForm> {
               onAddNewCategory: () {
                 AppUtils.showBottomModalSheet(
                   context: context,
-                  child: CreateCategorySheet(
+                  child: CategoryFormSheet(
                     onCategoryCreated: (id) {
                       setState(() {
                         if (!_selectedCategoryIds.contains(id)) {

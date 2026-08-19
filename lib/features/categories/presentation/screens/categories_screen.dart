@@ -12,7 +12,7 @@ import 'package:passkeeper/core/widgets/app_logo_bar.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 import 'package:passkeeper/features/categories/presentation/providers/categories_provider.dart';
 import 'package:passkeeper/features/categories/presentation/widgets/category_action_chip.dart';
-import 'package:passkeeper/features/categories/presentation/widgets/create_category_sheet.dart';
+import 'package:passkeeper/features/categories/presentation/widgets/category_form_sheet.dart';
 
 class CategoriesScreen extends ConsumerWidget {
   const CategoriesScreen({super.key});
@@ -20,7 +20,7 @@ class CategoriesScreen extends ConsumerWidget {
   void _showCreateCategorySheet(BuildContext context) {
     AppUtils.showBottomModalSheet(
       context: context,
-      child: const CreateCategorySheet(),
+      child: const CategoryFormSheet(),
     );
   }
 
