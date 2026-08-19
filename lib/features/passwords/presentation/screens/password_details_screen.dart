@@ -132,8 +132,9 @@ class _PasswordDetailsScreenState extends ConsumerState<PasswordDetailsScreen> {
                           isReadOnly: !_isEditingMode,
                         ),
 
+                        const SizedBox(height: 32.0),
+
                         if (!_isEditingMode) ...[
-                          const SizedBox(height: 32.0),
                           Row(
                             spacing: 16.0,
                             children: [
