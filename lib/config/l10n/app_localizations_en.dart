@@ -218,6 +218,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get empty => 'Empty';
 
   @override
+  String get categoryCreated => 'Category created';
+
+  @override
+  String get renameCategory => 'Rename Category';
+
+  @override
+  String get done => 'Done';
+
+  @override
   String get privacyPolicyLastUpdated => 'Last updated: August 2026';
 
   @override

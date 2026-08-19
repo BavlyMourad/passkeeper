@@ -220,6 +220,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get empty => 'فارغ';
 
   @override
+  String get categoryCreated => 'تم إنشاء الفئة';
+
+  @override
+  String get renameCategory => 'إعادة تسمية الفئة';
+
+  @override
+  String get done => 'تم';
+
+  @override
   String get privacyPolicyLastUpdated => 'آخر تحديث: أغسطس 2026';
 
   @override

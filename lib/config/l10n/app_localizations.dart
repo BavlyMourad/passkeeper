@@ -506,6 +506,24 @@ abstract class AppLocalizations {
   /// **'Empty'**
   String get empty;
 
+  /// No description provided for @categoryCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Category created'**
+  String get categoryCreated;
+
+  /// No description provided for @renameCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename Category'**
+  String get renameCategory;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
   /// No description provided for @privacyPolicyLastUpdated.
   ///
   /// In en, this message translates to:
