@@ -35,6 +35,9 @@ class CategorySelectField extends ConsumerWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
+          onOpened: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: InputDecorator(
             decoration: InputDecoration(
               isDense: context.isMobile,
@@ -99,6 +102,8 @@ class CategorySelectField extends ConsumerWidget {
             ),
           ],
           onSelected: (value) {
+            FocusManager.instance.primaryFocus?.unfocus();
+
             if (value == '__add__') {
               onAddNewCategory();
             } else {
