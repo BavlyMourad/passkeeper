@@ -58,4 +58,6 @@ class IconPaths {
   static const String settings = "assets/icons/settings.svg";
 
   static const String privacyPolicy = "assets/icons/privacy_policy.svg";
+
+  static const String rename = "assets/icons/rename.svg";
 }
