@@ -9,17 +9,20 @@ class PasswordsList extends StatelessWidget {
     required this.passwords,
     required this.onPasswordTap,
     required this.trailingBuilder,
+    this.bottomPadding = 24.0,
   });
 
   final List<Password> passwords;
   final void Function(BuildContext context, Password password) onPasswordTap;
   final Widget Function(BuildContext context, Password password)
   trailingBuilder;
+  final double bottomPadding;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: passwords.length,
+      padding: EdgeInsets.only(bottom: bottomPadding),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: context.isMobile ? 1 : 2,
         mainAxisExtent: 72,

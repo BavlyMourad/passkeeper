@@ -324,6 +324,7 @@ class _CategoryDetailsScreenState extends ConsumerState<CategoryDetailsScreen> {
                                           ),
                                         );
                                 },
+                                bottomPadding: _isEditingMode ? 96.0 : 24.0,
                               ),
                             ),
                     ],

@@ -179,6 +179,7 @@ class _PasswordsScreenState extends ConsumerState<PasswordsScreen> {
                                   ],
                                 );
                               },
+                              bottomPadding: 96.0,
                             ),
                           ),
                         ),
