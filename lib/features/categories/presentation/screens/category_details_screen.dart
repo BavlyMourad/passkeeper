@@ -18,6 +18,7 @@ import 'package:passkeeper/core/widgets/details_app_bar.dart';
 import 'package:passkeeper/core/widgets/gradient_background.dart';
 import 'package:passkeeper/core/widgets/loader.dart';
 import 'package:passkeeper/features/categories/presentation/controllers/category_details_controller.dart';
+import 'package:passkeeper/features/categories/presentation/widgets/category_form_sheet.dart';
 import 'package:passkeeper/features/passwords/application/password_service.dart';
 import 'package:passkeeper/features/passwords/domain/models/password.dart';
 import 'package:passkeeper/features/passwords/presentation/providers/filtered_passwords_provider.dart';
@@ -40,6 +41,7 @@ class _CategoryDetailsScreenState extends ConsumerState<CategoryDetailsScreen> {
 
   final Set<String> _pendingAdd = {};
   final Set<String> _pendingRemove = {};
+  String? _pendingName;
 
   @override
   void initState() {
@@ -64,6 +66,7 @@ class _CategoryDetailsScreenState extends ConsumerState<CategoryDetailsScreen> {
     _isEditingMode = !_isEditingMode;
     _pendingAdd.clear();
     _pendingRemove.clear();
+    _pendingName = null;
   });
 
   bool _isPendingMember(Password password) {
@@ -95,13 +98,21 @@ class _CategoryDetailsScreenState extends ConsumerState<CategoryDetailsScreen> {
     });
   }
 
-  void _saveChanges() {
-    ref
+  void _saveChanges() async {
+    if (_pendingName != null) {
+      await ref
+          .read(categoryDetailsControllerProvider(widget.id).notifier)
+          .rename(_pendingName!);
+    }
+
+    await ref
         .read(categoryDetailsControllerProvider(widget.id).notifier)
         .updateMembership(
           toAdd: _pendingAdd.toList(),
           toRemove: _pendingRemove.toList(),
         );
+
+    if (!mounted) return;
 
     _toggleEditMode();
 
@@ -198,9 +209,34 @@ class _CategoryDetailsScreenState extends ConsumerState<CategoryDetailsScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            category.name,
-                            style: AppStyles.headlineSemiBold(context),
+                          Row(
+                            children: [
+                              Text(
+                                _pendingName ?? category.name,
+                                style: AppStyles.headlineSemiBold(context),
+                              ),
+                              if (_isEditingMode)
+                                IconButton(
+                                  onPressed: () {
+                                    AppUtils.showBottomModalSheet(
+                                      context: context,
+                                      child: CategoryFormSheet(
+                                        initialName:
+                                            _pendingName ?? category.name,
+                                        onNameSubmitted: (name) =>
+                                            setState(() => _pendingName = name),
+                                      ),
+                                    );
+                                  },
+                                  icon: AppIcon(
+                                    path: IconPaths.rename,
+                                    size: IconSize.small,
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.editButton,
+                                  ),
+                                ),
+                            ],
                           ),
 
                           IconButton(
