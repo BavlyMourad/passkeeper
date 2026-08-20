@@ -22,6 +22,7 @@ class AppIcon extends StatelessWidget {
       IconSize.small => context.isMobile ? 20.0 : 24.0,
       IconSize.medium => context.isMobile ? 24.0 : 32.0,
       IconSize.large => context.isMobile ? 36.0 : 48.0,
+      IconSize.largest => context.isMobile ? 60.0 : 72.0,
     };
 
     return SvgPicture.asset(

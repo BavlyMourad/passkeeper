@@ -60,4 +60,6 @@ class IconPaths {
   static const String privacyPolicy = "assets/icons/privacy_policy.svg";
 
   static const String rename = "assets/icons/rename.svg";
+
+  static const String searchOff = "assets/icons/search_off.svg";
 }

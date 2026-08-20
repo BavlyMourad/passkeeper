@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-enum IconSize { smallest, small, medium, large }
+enum IconSize { smallest, small, medium, large, largest }
 
 enum AppLanguage {
   ar('العربية', 'ar'),
