@@ -1,3 +1,4 @@
+import 'package:passkeeper/core/providers/is_first_time_user.dart';
 import 'package:passkeeper/features/auth/application/auth_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -14,5 +15,9 @@ class CreatePinController extends _$CreatePinController {
     state = await AsyncValue.guard(
       () => ref.read(authServiceProvider).setupPin(pin),
     );
+
+    if (state is AsyncData) {
+      ref.read(isFirstTimeUserProvider.notifier).state = false;
+    }
   }
 }

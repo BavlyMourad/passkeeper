@@ -42,7 +42,7 @@ final class CreatePinControllerProvider
 }
 
 String _$createPinControllerHash() =>
-    r'275d3e47a44e9341b3308f7c86d11bbe7c1bd9bb';
+    r'082922a39e50d73a1ffe0d85afbf420032927b5f';
 
 abstract class _$CreatePinController extends $Notifier<AsyncValue<void>> {
   AsyncValue<void> build();
