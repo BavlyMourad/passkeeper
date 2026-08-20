@@ -227,6 +227,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get done => 'Done';
 
   @override
+  String get sessionExpiredTitle => 'Session expired';
+
+  @override
+  String get sessionExpiredMessage =>
+      'You were logged out due to inactivity. Please log in again.';
+
+  @override
+  String get sessionExpiredButtonLabel => 'Log In';
+
+  @override
+  String get pageNotFoundTitle => 'Page not found';
+
+  @override
+  String get pageNotFoundDescription =>
+      'The page you\'re looking for doesn\'t exist or has been moved.';
+
+  @override
+  String get goHomeButtonLabel => 'Go home';
+
+  @override
   String get privacyPolicyLastUpdated => 'Last updated: August 2026';
 
   @override

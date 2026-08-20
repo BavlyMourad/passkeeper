@@ -229,6 +229,26 @@ class AppLocalizationsAr extends AppLocalizations {
   String get done => 'تم';
 
   @override
+  String get sessionExpiredTitle => 'انتهت صلاحية الجلسة';
+
+  @override
+  String get sessionExpiredMessage =>
+      'تم تسجيل خروجك بسبب عدم النشاط. يُرجى تسجيل الدخول مرة أخرى.';
+
+  @override
+  String get sessionExpiredButtonLabel => 'تسجيل الدخول';
+
+  @override
+  String get pageNotFoundTitle => 'الصفحة غير موجودة';
+
+  @override
+  String get pageNotFoundDescription =>
+      'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.';
+
+  @override
+  String get goHomeButtonLabel => 'العودة للرئيسية';
+
+  @override
   String get privacyPolicyLastUpdated => 'آخر تحديث: أغسطس 2026';
 
   @override

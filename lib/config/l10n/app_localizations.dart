@@ -524,6 +524,42 @@ abstract class AppLocalizations {
   /// **'Done'**
   String get done;
 
+  /// No description provided for @sessionExpiredTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Session expired'**
+  String get sessionExpiredTitle;
+
+  /// No description provided for @sessionExpiredMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'You were logged out due to inactivity. Please log in again.'**
+  String get sessionExpiredMessage;
+
+  /// No description provided for @sessionExpiredButtonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get sessionExpiredButtonLabel;
+
+  /// No description provided for @pageNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Page not found'**
+  String get pageNotFoundTitle;
+
+  /// No description provided for @pageNotFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'The page you\'re looking for doesn\'t exist or has been moved.'**
+  String get pageNotFoundDescription;
+
+  /// No description provided for @goHomeButtonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Go home'**
+  String get goHomeButtonLabel;
+
   /// No description provided for @privacyPolicyLastUpdated.
   ///
   /// In en, this message translates to:
