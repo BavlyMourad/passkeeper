@@ -107,6 +107,7 @@ class _CreatePinSheetState extends ConsumerState<CreatePinSheet> {
                 controller: _pinController,
                 obscureText: isPinObscured,
                 keyboardType: TextInputType.number,
+                readOnly: isLoading,
                 maxLength: 6,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 validator: (value) => AppFormValidators.pin(context, value),
@@ -126,6 +127,7 @@ class _CreatePinSheetState extends ConsumerState<CreatePinSheet> {
                 controller: _confirmPinController,
                 obscureText: isConfirmPinObscured,
                 keyboardType: TextInputType.number,
+                readOnly: isLoading,
                 maxLength: 6,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 validator: (value) => AppFormValidators.confirmPin(
@@ -155,7 +157,8 @@ class _CreatePinSheetState extends ConsumerState<CreatePinSheet> {
                   ),
                   Switch(
                     value: biometricEnabled,
-                    onChanged: (_) => _toggleBiometric(context),
+                    onChanged: (_) =>
+                        isLoading ? null : _toggleBiometric(context),
                   ),
                 ],
               ),
